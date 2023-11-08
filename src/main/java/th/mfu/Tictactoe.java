@@ -1,5 +1,7 @@
 package th.mfu;
 
+import org.springframework.stereotype.Service;
+
 /*import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -109,8 +111,8 @@ import java.util.Scanner;
 
     }
 
-}*/
-/*import java.util.Arrays;
+}
+import java.util.Arrays;
 
 /*public class Tictactoe {
     private static final int BOARD_SIZE = 9;
@@ -350,10 +352,14 @@ public class Tictactoe {
     
         return true;
     }
-<<<<<<< HEAD
+
 }*/
 
+<<<<<<< HEAD
 
+=======
+@Service
+>>>>>>> d9ed036453dd7ef8cf781a98fa14d512ff6b237f
 public class Tictactoe {
     private static final int BOARD_SIZE = 9;
     private static final int SUB_BOARD_SIZE = 3;
@@ -534,6 +540,42 @@ public class Tictactoe {
         return false;
     }
     
+    public static int getBoardSize() {
+        return BOARD_SIZE;
+    }
+
+    public static int getSubBoardSize() {
+        return SUB_BOARD_SIZE;
+    }
+
+    public char[][] getMainBoard() {
+        return mainBoard;
+    }
+
+    public void setMainBoard(char[][] mainBoard) {
+        this.mainBoard = mainBoard;
+    }
+
+    public char[][][] getSubBoards() {
+        return subBoards;
+    }
+
+    public void setSubBoards(char[][][] subBoards) {
+        this.subBoards = subBoards;
+    }
+
+    public void setCurrentPlayer(char currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public void setWinner(char winner) {
+        this.winner = winner;
+    }
+
+    public void setGameEnded(boolean gameEnded) {
+        this.gameEnded = gameEnded;
+    }
+
     private boolean isMainBoardFull() {
         // Iterate through the sub-boards within the main board
         for (int subBoardIndex = 0; subBoardIndex < BOARD_SIZE; subBoardIndex++) {
@@ -548,5 +590,4 @@ public class Tictactoe {
     }
     
 }
-
 
