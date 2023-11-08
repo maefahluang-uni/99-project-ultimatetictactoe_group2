@@ -68,7 +68,7 @@ public class TictactoeController {
     
     @GetMapping("/game")
     public String Game(Model model){
-
+        return "";
     }
 }
 
