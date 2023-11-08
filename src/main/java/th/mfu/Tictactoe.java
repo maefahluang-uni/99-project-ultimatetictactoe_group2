@@ -352,6 +352,8 @@ public class Tictactoe {
     }
 <<<<<<< HEAD
 }*/
+
+
 public class Tictactoe {
     private static final int BOARD_SIZE = 9;
     private static final int SUB_BOARD_SIZE = 3;
@@ -370,6 +372,20 @@ public class Tictactoe {
         gameEnded = false;
         initializeBoards();
     }
+    
+        // ... (existing code)
+    
+        // Add public getter methods for mainBoard and subBoards
+        public char[][] getMainBoard() {
+            return mainBoard;
+        }
+    
+        public char[][][] getSubBoards() {
+            return subBoards;
+        }
+        
+        // ... (existing code)
+    
 
     private void initializeBoards() {
         // Initialize main board and sub-boards with empty cells

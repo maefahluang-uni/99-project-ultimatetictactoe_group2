@@ -76,3 +76,38 @@ public class TictactoeController {
     }
 }*/
 
+
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class TictactoeController {
+    private Tictactoe tictactoeModel = new Tictactoe();
+
+    @GetMapping("/tictactoe")
+    public String showTictactoeBoard(Model model) {
+        model.addAttribute("mainBoard", tictactoeModel.getMainBoard());
+        model.addAttribute("subBoards", tictactoeModel.getSubBoards());
+        model.addAttribute("currentPlayer", tictactoeModel.getCurrentPlayer());
+        model.addAttribute("gameEnded", tictactoeModel.isGameEnded());
+        model.addAttribute("winner", tictactoeModel.getWinner());
+        return "tictactoe"; // This should correspond to your view template name (tictactoe.html)
+    }
+
+    @PostMapping("/tictactoe/makeMove")
+    public String makeMove(
+            @RequestParam int mainRow,
+            @RequestParam int mainCol,
+            @RequestParam int subRow,
+            @RequestParam int subCol) {
+        tictactoeModel.makeMove(mainRow, mainCol, subRow, subCol);
+        return "redirect:/tictactoe";
+    }
+}
+
+
