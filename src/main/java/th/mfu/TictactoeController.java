@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
+/*@Controller
 public class TictactoeController {
     
    
@@ -68,7 +68,11 @@ public class TictactoeController {
     
     @GetMapping("/game")
     public String Game(Model model){
+<<<<<<< HEAD
         return "";
+=======
+                  return "";
+>>>>>>> 4febb31313dc037447a9cdddf45c3b35c5211907
     }
-}
+}*/
 
