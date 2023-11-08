@@ -141,8 +141,6 @@ import java.util.Scanner;
                 for (int l = 0; l < SUB_BOARD_SIZE; l++) {
                     subBoards[i][k][l] = ' ';
 <<<<<<< HEAD
-                }*/
-=======
                 }
 import java.util.Arrays;
 
@@ -536,6 +534,3 @@ public class Tictactoe {
 }
 
 
-
-
->>>>>>> ced7729ac487099072d396ce2620f7c1702b3556
