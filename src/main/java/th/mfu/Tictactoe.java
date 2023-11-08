@@ -109,8 +109,8 @@ import java.util.Scanner;
 
     }
 
-}*/
-/*import java.util.Arrays;
+}
+import java.util.Arrays;
 
 /*public class Tictactoe {
     private static final int BOARD_SIZE = 9;
@@ -350,8 +350,9 @@ public class Tictactoe {
     
         return true;
     }
-<<<<<<< HEAD
+
 }*/
+
 public class Tictactoe {
     private static final int BOARD_SIZE = 9;
     private static final int SUB_BOARD_SIZE = 3;
@@ -532,5 +533,4 @@ public class Tictactoe {
     }
     
 }
-
 
