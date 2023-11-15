@@ -34,8 +34,5 @@ public class game {
         return generateId();
     }
 
-    public static void main(String args[]) {
-
-    }
 
 }
