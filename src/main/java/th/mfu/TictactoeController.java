@@ -43,7 +43,7 @@ public class TictactoeController {
 
     @GetMapping("/SignUp")
     public String signUp(Model model){
-        model.addAttribute("name", new Tictactoe());
+        model.addAttribute("name", new game());
         return "";
     }
 

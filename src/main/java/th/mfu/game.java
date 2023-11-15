@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Tictactoe {
+public class game {
     private String name;
     Scanner scanner = new Scanner(System.in);
 
