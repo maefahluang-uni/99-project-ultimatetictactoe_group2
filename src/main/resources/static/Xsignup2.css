@@ -1,0 +1,899 @@
+.log-in {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Add this line to center the content horizontally */
+    background-color: #192a32;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Add this line to center the content horizontally */
+  width: 480px;
+  }
+  
+  .frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  }
+  
+  .img {
+    position: relative;
+  }
+  
+  .div {
+    display: flex;
+  flex-direction: column;
+  width: 480px;
+  height: 280px;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 60px;
+  position: relative;
+  background-color: #344f5c;
+  border-radius: 20px;
+  }
+  
+  .text-wrapper {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .p {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  color: #a8bec9;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .frame-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .button1 {
+    display: flex;
+  width: 480px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #31c3be;
+  border-radius: 12px;
+  cursor: pointer; /* Add cursor pointer for interactive element */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */  
+  }
+  
+  .button1:hover{
+    border: solid 3px #00fff7; /* Add border on hover */
+  padding: 8px; /* Adjust padding to accommodate the border */
+  }
+  
+  .text-wrapper-2{
+    position: relative;
+  width: fit-content;
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 400;
+  color: #192a32;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  .text-wrapper-2:hover {
+    color: #ffffff; /* Change color on hover */
+  }
+  
+  .text-wrapper-2:active {
+    color: #000000; /* Change color when pressed */
+  }
+  
+  .button2{
+    display: flex;
+  width: 480px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #f2b237;
+  border-radius: 12px;
+  cursor: pointer; /* Add cursor pointer for interactive element */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .button2:hover{
+    border: solid 3px #ffd900;
+  padding: 8px; /* Adjust padding to accommodate the border */
+  }
+  
+  .button2.active {
+    background-color: #9a6c17; /* Change background color when pressed */
+  }
+  
+    
+  .blur {
+    position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #192a32ad;
+      backdrop-filter: blur(4px) brightness(100%);
+      -webkit-backdrop-filter: blur(4px) brightness(100%);
+  }
+  .div-2 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+  
+  .all-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 566px;
+      height: 263px;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      position: absolute;
+      background-color: #496a81;
+      border-radius: 30px;
+  }
+  
+  .all {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      position: relative;
+      flex: 0 0 auto;
+      margin-top: -6.71px;
+      margin-bottom: -6.71px;
+  }
+  
+  .player {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 5px;
+      position: relative;
+      flex: 0 0 auto;
+  }
+  
+  .frame-3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 6px 6px 6px 11px;
+      position: relative;
+      flex: 0 0 auto;
+  }
+  
+  .text-wrapper-3 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 38px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+  }
+  
+  
+  .textbox {
+    width: 371px;
+    height: 45px;
+    background-color: #8cbee0;
+    padding: 10px 0px;
+    position: relative;
+    border-radius: 15px;
+    border: none;
+    margin-top: -1px;
+  }
+  
+  #random-number-box {
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
+    color: #425f74;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  /*
+  ::placeholder{
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    color: #425f74;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  */
+  
+   
+    #nextbutton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 88.39px;
+        height: 50.5px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: 15px;
+        background-color: #31c3be;
+        cursor: pointer; /* Add cursor pointer for interactive element */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */  
+        font-family: 'Audiowide', sans-serif;
+        font-size: 25px;
+        color: #1d4248;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+    }
+  
+    /* #nextbutton:disabled {
+        width: 88.39px;
+        height: 50.5px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: 15px;
+        background-color: #091b1a;
+        cursor: pointer; 
+        transition: background-color 0.3s ease; 
+        font-family: 'Audiowide', sans-serif;
+        font-size: 25px;
+        color: #1d4248;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        transition: color 0.3s ease, text-shadow 0.3s ease; 
+    } */
+  
+    .log-in {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; /* Add this line to center the content horizontally */
+      background-color: #192a32;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .frame-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Add this line to center the content horizontally */
+    width: 480px;
+    }
+    
+    .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    }
+    
+    .img {
+      position: relative;
+    }
+    
+    .div {
+      display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 280px;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 60px;
+    position: relative;
+    background-color: #344f5c;
+    border-radius: 20px;
+    }
+    
+    .text-wrapper {
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    margin-top: -1px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    }
+    
+    .p {
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: #a8bec9;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    }
+    
+    .frame-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    flex: 0 0 auto;
+    }
+    
+    .button1 {
+      display: flex;
+    width: 480px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    background-color: #31c3be;
+    border-radius: 12px;
+    cursor: pointer; /* Add cursor pointer for interactive element */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */  
+    }
+    
+    .button1:hover{
+      border: solid 3px #00fff7; /* Add border on hover */
+    padding: 8px; /* Adjust padding to accommodate the border */
+    }
+    
+    .text-wrapper-2{
+      position: relative;
+    width: fit-content;
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+    color: #192a32;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    .text-wrapper-2:hover {
+      color: #ffffff; /* Change color on hover */
+    }
+    
+    .text-wrapper-2:active {
+      color: #000000; /* Change color when pressed */
+    }
+    
+    .button2{
+      display: flex;
+    width: 480px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    background-color: #f2b237;
+    border-radius: 12px;
+    cursor: pointer; /* Add cursor pointer for interactive element */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+    
+    .button2:hover{
+      border: solid 3px #ffd900;
+    padding: 8px; /* Adjust padding to accommodate the border */
+    }
+    
+    .button2.active {
+      background-color: #9a6c17; /* Change background color when pressed */
+    }
+    
+      
+    .blur {
+      position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #192a32ad;
+        backdrop-filter: blur(4px) brightness(100%);
+        -webkit-backdrop-filter: blur(4px) brightness(100%);
+    }
+    .div-2 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+    
+    .all-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 566px;
+        height: 263px;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        position: absolute;
+        background-color: #496a81;
+        border-radius: 30px;
+    }
+    
+    .all {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        position: relative;
+        flex: 0 0 auto;
+        margin-top: -6.71px;
+        margin-bottom: -6.71px;
+    }
+    
+    .player {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 5px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+    
+    .frame-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 6px 6px 6px 11px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+    
+    .text-wrapper-3 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 38px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+    
+    
+    .textbox {
+      width: 371px;
+      height: 45px;
+      background-color: #8cbee0;
+      padding: 10px 0px;
+      position: relative;
+      border-radius: 15px;
+      border: none;
+      margin-top: -1px;
+    }
+    /*
+    ::placeholder{
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+      color: #425f74;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    */
+     
+      #nextbutton {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 88.39px;
+          height: 50.5px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 10px;
+          position: relative;
+          flex: 0 0 auto;
+          border-radius: 15px;
+          background-color: #31c3be;
+          cursor: pointer; /* Add cursor pointer for interactive element */
+          transition: background-color 0.3s ease; /* Smooth transition for background color */  
+          font-family: 'Audiowide', sans-serif;
+          font-size: 25px;
+          color: #1d4248;
+          font-weight: 500;
+          text-align: center;
+          letter-spacing: 0;
+          line-height: normal;
+          transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+      }
+    /*
+      #donebutton:disabled {
+          width: 88.39px;
+          height: 50.5px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 10px;
+          position: relative;
+          flex: 0 0 auto;
+          border-radius: 15px;
+          background-color: #091b1a;
+          cursor: pointer; 
+          transition: background-color 0.3s ease; 
+          font-family: 'Audiowide', sans-serif;
+          font-size: 25px;
+          color: #1d4248;
+          font-weight: 500;
+          text-align: center;
+          letter-spacing: 0;
+          line-height: normal;
+          transition: color 0.3s ease, text-shadow 0.3s ease; 
+      }
+      */
+      @media (max-width: 768px){
+        .log-in {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; /* Add this line to center the content horizontally */
+          background-color: #192a32;
+          width: 100%;
+          height: 100vh;
+      }
+      
+      .frame-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Add this line to center the content horizontally */
+        width: 300px;
+      }
+      
+      .frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      
+      .img {
+          position: relative;
+          width: 150px;
+          height: 56px;
+      }
+    
+      .img1{
+        position: relative;
+        width: 49px;
+        height: 49px;
+      }
+    
+      
+      .div {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 280px;
+        align-items: center;
+        gap: 24px;
+        padding: 40px 60px;
+        position: relative;
+        background-color: #344f5c;
+        border-radius: 20px;
+      }
+      
+      .text-wrapper {
+        position: relative;
+        flex: 1;
+        align-self: stretch;
+        margin-top: -1px;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+      
+      .p {
+        position: relative;
+        flex: 1;
+        align-self: stretch;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 500;
+        color: #a8bec9;
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+      
+      .frame-2 {
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+      
+      .button1 {
+          display: flex;
+        width: 280px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        position: relative;
+        background-color: #31c3be;
+        border-radius: 12px;
+        cursor: pointer; /* Add cursor pointer for interactive element */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */  
+      }
+      
+      .button1:hover{
+          border: solid 3px #00fff7; /* Add border on hover */
+        padding: 8px; /* Adjust padding to accommodate the border */
+      }
+      
+      .text-wrapper-2{
+          position: relative;
+        width: fit-content;
+        font-family: 'Audiowide', sans-serif;
+        font-weight: 400;
+        color: #192a32;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: normal;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+      .text-wrapper-2:hover {
+          color: #ffffff; /* Change color on hover */
+        }
+        
+      .text-wrapper-2:active {
+          color: #000000; /* Change color when pressed */
+        }
+      
+      .button2{
+        display: flex;
+        width: 280px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        position: relative;
+        background-color: #f2b237;
+        border-radius: 12px;
+        cursor: pointer; /* Add cursor pointer for interactive element */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+      }
+      
+      .button2:hover{
+          border: solid 3px #ffd900;
+        padding: 8px; /* Adjust padding to accommodate the border */
+      }
+      
+      .button2.active {
+          background-color: #9a6c17; /* Change background color when pressed */
+      }
+        
+          
+        .blur {
+          position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #192a32ad;
+            backdrop-filter: blur(4px) brightness(100%);
+            -webkit-backdrop-filter: blur(4px) brightness(100%);
+        }
+        .div-2 {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            flex: 0 0 auto;
+          }
+        
+        .all-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 243px;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            position: absolute;
+            background-color: #496a81;
+            border-radius: 30px;
+        }
+        
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            flex: 0 0 auto;
+            margin-top: -6.71px;
+            margin-bottom: -6.71px;
+        }
+        
+        .player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 5px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+        
+        .frame-3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 6px 6px 6px 11px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+        
+        .text-wrapper-3 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+        
+      
+        .textbox{
+          width: 271px;
+          height: 35px;
+          background-color: #8cbee0;
+          padding: 10px 0px;
+          position: relative;
+          border-radius: 15px;
+          border: none;
+          margin-top: -1px;
+        }
+    
+        #random-number-box {
+          font-size: 18px;
+          font-family: 'Orbitron', sans-serif;
+          color: #425f74;
+          text-align: center;
+          letter-spacing: 0;
+          line-height: normal;
+        }
+      
+        /* .placeholder{
+          font-size: 15px;
+          font-family: 'Orbitron', sans-serif;
+          color: #425f74;
+          text-align: center;
+          letter-spacing: 0;
+          line-height: normal;
+        } */
+        
+         
+          #nextbutton {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 75px;
+              height: 40px;
+              display: inline-flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 10px;
+              position: relative;
+              flex: 0 0 auto;
+              border-radius: 15px;
+              background-color: #31c3be;
+              cursor: pointer; /* Add cursor pointer for interactive element */
+              transition: background-color 0.3s ease; /* Smooth transition for background color */  
+              font-family: 'Audiowide', sans-serif;
+              font-size: 15px;
+              color: #1d4248;
+              font-weight: 500;
+              text-align: center;
+              letter-spacing: 0;
+              line-height: normal;
+              transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+          }
+        
+          /** #nextbutton:disabled {
+              width: 75px;
+              height: 40px;
+              display: inline-flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 10px;
+              position: relative;
+              flex: 0 0 auto;
+              border-radius: 15px;
+              background-color: #091b1a;
+              cursor: pointer; 
+              transition: background-color 0.3s ease;  
+              font-family: 'Audiowide', sans-serif;
+              font-size: 15px;
+              color: #1d4248;
+              font-weight: 500;
+              text-align: center;
+              letter-spacing: 0;
+              line-height: normal;
+              transition: color 0.3s ease, text-shadow 0.3s ease; 
+          }
+          **/
+      }
+      
+          
