@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <title>Ultimate Tic-Tac-Toe - Xing</title>
+    <link rel="stylesheet" type="text/css" href="/static/uni.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="author" content="Michael Xing">
+    <meta name="theme-color" content="#1a237e">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://michaelxing.com/pfp.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="Ultimate Tic-Tac-Toe">
+    <link rel="stylesheet" type="text/css" href="/static/uttt.css">
+    <script type="text/javascript" data-cfasync="false" src="/static/info.js"></script>
+    <script type="text/javascript" data-cfasync="false" src="/static/board.js"></script>
+    <script type="text/javascript" data-cfasync="false" src="/static/game.js"></script>
+</head>
+
+<body>
+    <div class="MainContent">
+        <h1>Ultimate Tic-Tac-Toe</h1>
+        <p>Version 3.0, Late 2019</p>
+        <section id="boardWrap">
+        </section>
+        <aside id="infoBox">
+        </aside>
+        <script type="text/javascript">
+            const board = new GameBoard();
+            let state = new GameState();
+            const info = new InfoBox();
+
+            const messages = {
+                start: "$X$ to Start",
+                anyMove: "Please make a move in any area",
+                restrictMove: "Please make a move in the indicated area",
+                xNext: "$X$ to Move",
+                oNext: "$O$ to Move",
+                xWin: "$X$ Wins",
+                oWin: "$O$ Wins",
+                tie: "Tie",
+                restart: "<button class='BigButton' onclick='reset()'>Rematch</button>"
+            };
+            info.setMsg(messages.start, messages.anyMove);
+
+            function clickedCell(a, b, i, j) {
+
+                const turn = state.turn;
+
+                // Update state and board
+                if (state.move(a, b, i, j)) {
+                    board.move(turn, state, a, b, i, j);
+                }
+
+                // Update info box
+                if (!state.status) {
+                    // noinspection JSIncompatibleTypesComparison
+                    if (state.status === null) {
+                        // Tie
+                        info.setMsg(messages.tie, messages.restart);
+                    } else {
+                        // Winner
+                        info.setMsg(state.turn ? messages.xWin : messages.oWin, messages.restart);
+                    }
+                } else {
+                    info.setMsg(
+                        state.turn ? messages.xNext : messages.oNext,
+                        state.lastMove ? messages.restrictMove : messages.anyMove
+                    );
+                }
+            }
+
+            function reset() {
+                board.reset();
+                state = new GameState();
+                info.setMsg(messages.start, messages.anyMove);
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

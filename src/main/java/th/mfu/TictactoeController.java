@@ -20,32 +20,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-/*@Controller
+@Controller
 public class TictactoeController {
     
    
-    @Autowired
+   /*  @Autowired
     IDRepository IDrepo;
 
-    @Autowired
-    OmoveRepository Omove;
+   
 
-    @Autowired
-    XmoveRepository Xmove;
-
-
-
-    public TictactoeController( IDRepository idrepo, OmoveRepository omove, XmoveRepository xmove){
+    public TictactoeController( IDRepository idrepo){
       
         this.IDrepo = idrepo;
-        this.Omove = omove;
-        this.Xmove = xmove;
-    }
+        
+    }*/
 
     @GetMapping("/tictactoe")
     public String tictactoe(Model model){
        model.addAttribute("", model);
-       return "";
+       return "ttt";
     }
 
     @GetMapping("/SignUp")
@@ -54,11 +47,11 @@ public class TictactoeController {
         return "";
     }
 
-    @PostMapping("/GenerateID")
+   /* @PostMapping("/GenerateID")
     public String GenerateID(@ModelAttribute Tictactoe newTictactoe){
         IDrepo.save(newTictactoe);
         return "";
-    }
+    }*/
 
     @PostMapping("/login")
     public String logIn(Model model){
@@ -68,42 +61,13 @@ public class TictactoeController {
     
     @GetMapping("/game")
     public String Game(Model model){
-                  return "";
-    }
-}*/
-
-
-
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-@Controller
-public class TictactoeController {
-    private Tictactoe tictactoeModel = new Tictactoe();
-
-    @GetMapping("/tictactoe")
-    public String showTictactoeBoard(Model model) {
-        model.addAttribute("mainBoard", tictactoeModel.getMainBoard());
-        model.addAttribute("subBoards", tictactoeModel.getSubBoards());
-        model.addAttribute("currentPlayer", tictactoeModel.getCurrentPlayer());
-        model.addAttribute("gameEnded", tictactoeModel.isGameEnded());
-        model.addAttribute("winner", tictactoeModel.getWinner());
-        return "tictactoe"; // This should correspond to your view template name (tictactoe.html)
-    }
-
-    @PostMapping("/tictactoe/makeMove")
-    public String makeMove(
-            @RequestParam int mainRow,
-            @RequestParam int mainCol,
-            @RequestParam int subRow,
-            @RequestParam int subCol) {
-        tictactoeModel.makeMove(mainRow, mainCol, subRow, subCol);
-        return "redirect:/tictactoe";
+                  return "ttt";
     }
 }
+
+
+
+
+
 
 

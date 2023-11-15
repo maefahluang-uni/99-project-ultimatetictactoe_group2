@@ -1,0 +1,405 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway|Open+Sans';
+@import url("https://use.typekit.net/uly3jmt.css");
+
+body{
+	margin:0;padding:100px 0 0 0;
+	background:#212121;
+	color:#ecf0f1;
+	font-family: 'Open Sans', sans-serif;
+}
+body.MainPage{
+	padding:0;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Raleway', sans-serif;
+}
+h1{
+	font-size:400%;
+}
+h2{
+	font-size:250%;
+}
+h3{
+	font-size:180%;
+}
+
+
+
+a{
+	color:white;
+	text-decoration:underline;
+	transition: color 0.2s ease;
+}
+a:hover{
+	text-decoration:none;
+}
+a:active{
+	color:#80D8FF;
+}
+
+
+
+
+/*
+ * 
+ * Setting up some headers
+ * 
+ */
+
+
+/*.MainPage header{
+	text-align:center;
+	position:relative;
+	max-height:inherit;
+	max-height:initial;
+}
+.MainPage header h1{
+	margin:0;
+}
+.MainPage #XingLogo div {
+	font-size: 200px;
+	margin-bottom:20px;
+	-webkit-text-stroke: 3px black;
+}
+.MainPage #XingLogo div:after {
+	-webkit-text-stroke: 10px white;
+}*/
+
+header{
+	width:100%;
+	background:#1a237e;
+	position:fixed;
+	top:0;left:0;
+	max-height:100px;
+	z-index:1000;
+}
+header h1{
+	margin:0 0 0 50px;
+}
+/*header h1 img{
+	max-height:100px;
+}*/
+#XingLogo div {
+	color:blue;
+	display: inline-block;
+	font-size: 80px;
+	margin-bottom:10px;
+	font-family: 'cooper-black-std', serif;
+	position: relative;
+	-webkit-text-stroke: 1px black;
+	-webkit-text-fill-color: blue;
+	text-decoration:none;
+}
+#XingLogo div:after {
+	color: red;
+	content: attr(data-text);
+	position: absolute;
+	-webkit-text-stroke: 5px white;
+	left: 0;
+	z-index: -2;
+	font-size: 1em;
+}
+
+header nav{
+	position:absolute;
+	bottom:0;
+	right:0;
+	font-size:0;
+	white-space:nowrap;
+}
+header nav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+header nav li{
+	margin:0;
+	display:inline-block;
+	position:relative;
+}
+header nav .SubMenu, header nav .CurrPage{
+	cursor:default;
+}
+header nav .CurrPage:active{
+	color:white;
+}
+header nav .SubMenu:active{
+	color:white;
+}
+header nav .CurrPage::after{
+	top:0 !important; /*Ugh... stupid CSS*/
+}
+header nav ul li .CurrPage{
+	color:white;
+	pointer-events:none;
+}
+
+header nav a{
+	color:white;
+	transition: color 0.2s ease;
+	text-decoration:none;
+	display:inline-block;
+	height:100%;
+	padding:20px;
+	z-index:1;
+	
+	position:relative;
+	overflow:hidden;
+	vertical-align:top;
+	
+	font-size:16px;
+}
+header nav a:active{
+	color:#80D8FF;
+}
+header nav li ul li:hover a:active{
+	color:#80D8FF;
+}
+header nav a span{
+	position:relative;
+	z-index:1;
+}
+header nav a::after{
+	content:'';
+	position:absolute;
+	top:100%;left:0;
+	width:100%;height:100%;
+	padding:0;margin:0;
+	background:#212121;
+	z-index:0;
+	transition: top 0.2s ease, background 0.1s ease;
+}
+header nav a:active::after{
+	background:#424242;
+}
+header nav a.SubMenu:active::after{
+	background:#212121;
+}
+
+header nav li:focus-within a::after{
+	top:0; /*accessibility*/
+}
+header nav li:focus-within ul a::after{
+	top:-100%;
+}
+
+header nav li:hover a::after,
+header nav li:hover ul a::after,
+header nav li a:focus::after,
+header nav li ul a:focus::after
+{
+	top:0;
+}
+
+
+header nav li ul::before{
+	content:'';
+	position:absolute;
+	top:-50%;left:-10%;
+	width:120%;height:200%;
+	padding:0;margin:0;
+}
+header nav li ul a::after{
+	background:black;
+}
+
+header nav li div{
+	overflow:hidden;
+	position:absolute;
+	height:100px;/*62px;*/
+	pointer-events:none;
+	right:0;
+}
+header nav li:hover div{
+	pointer-events:all;
+}
+header nav li ul{
+	position:relative;
+	bottom:100%;
+	transition: bottom 0.2s ease;
+	white-space:nowrap;
+}
+header nav li:hover ul, header nav li:focus-within ul{
+	pointer-events:all;
+	bottom:0 !important;
+}
+
+header nav li ul li{
+	background:#F5F5F5;
+}
+header nav li ul li a{
+	color:black;
+	transition: color 0.2s ease;
+}
+header nav li ul li a::after{
+	top:-100%;
+}
+header nav li:hover ul li a::after{
+	top:-100%;
+}
+header nav li ul li:hover a, header nav li ul li a:focus{
+	color:white;
+}
+header nav li ul li:hover a::after{
+	top:0;
+}
+
+
+
+
+
+/*
+ * 
+ * Footers
+ * 
+ */
+footer{
+	background:#1a237e;/*303F9F;*/
+	width:100%;
+	margin:0;
+	padding:0;
+	text-align:center;
+	padding: 40px 0;
+}
+
+footer h1{
+	font-size:150%;
+	margin:0 0 20px 0;
+}
+
+footer h2{
+	font-size:110%;
+	margin:0;
+	font-weight:normal;
+}
+
+footer div{
+	padding: 0 50px;
+}
+
+
+
+/*
+ * 
+ * General 
+ * 
+ */
+
+
+
+.MainContent{
+	padding:0 50px 50px 50px;
+	font-size:110%;
+	min-height:calc(100vh - 348px);
+}
+
+
+
+.BigButton{
+	padding:20px;
+	background:#304FFE;
+	color:white;
+	transition: all 0.5s ease;
+	border:none;
+	cursor:pointer;
+	text-decoration:none;
+}
+.BigButton:hover{
+	background:black;
+}
+.BigButton:active{
+	background:white;
+	color:black;
+	transition: all 0.1s ease;
+}
+.BigButton:disabled{
+	background:#7f8c8d;
+	cursor:not-allowed;
+}
+
+#XingLogo a div{
+	position:relative;
+	top:0; left:0;
+	transition:top 0.1s ease, left 0.1s ease;
+}
+#XingLogo a:hover div{
+	top:-1px; left:-1px;
+}
+#XingLogo a:active div{
+	top:1px; left:1px;
+}
+
+
+article img{
+	max-width:60%;
+}
+
+
+/*
+ * Let's do the mobile thing
+ max-device-width
+ */
+@media (max-width : 768px) {
+	html, body{
+		margin:0;
+		padding:0;
+		max-width:100vw;
+		overflow-x:hidden;
+	}
+	header{
+		position:relative;
+		text-align:right !important;
+		height:initial;
+		max-height:initial;
+		user-select:none;
+	}
+	header h1{
+		text-align:center;
+		margin:0;
+	}
+	/*header h1 img{
+		max-height:200px !important;
+	}*/
+	/*.MainPage #XingLogo div {
+		font-size: 150px !important;
+		margin-bottom:15px;
+		-webkit-text-stroke: 2px black;
+	}
+	.MainPage #XingLogo div:after {
+		-webkit-text-stroke: 10px white;
+	}*/
+	header nav{
+		position:relative;
+		right:0;bottom:0;
+	}
+	header nav ul li{
+		position:static;
+	}
+	header nav ul li div{
+		height:initial;
+		right:-50vw;
+		width:50vw;
+		transition: right 0.5s ease;
+	}
+	header nav ul li:hover div, header nav ul li:focus-within div{
+		right:0;
+	}
+	header nav ul li ul{
+		text-align:center;
+	}
+	header nav ul li ul li{
+		display:block;
+		width:100%;
+	}
+	header nav ul li ul li a{
+		width:calc(100% - 40px);
+	}
+}
+
+@media(max-width: 600px) {
+	header nav ul li div{
+		right:-80vw;
+		width:80vw;
+	}
+}
