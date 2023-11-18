@@ -6,7 +6,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class game {
-<<<<<<< HEAD
     private String name;
     Scanner scanner = new Scanner(System.in);
 
@@ -35,8 +34,6 @@ public class game {
         return generateId();
     }
 
-=======
    
->>>>>>> 2b95ca82d0ece51810e91658ac7b8f0104dcc4d8
 
 }
