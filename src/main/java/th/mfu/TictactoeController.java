@@ -3,10 +3,13 @@ package th.mfu;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.transaction.Transactional;
+import java.util.Set;
 
 import org.apache.tomcat.jni.Address;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,52 +25,73 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TictactoeController {
-    
-   
-   /*  @Autowired
-    IDRepository IDrepo;
 
-   
+    private static final Random random = new Random();
+    private static final Set<String> useIds = new HashSet<>();
 
-    public TictactoeController( IDRepository idrepo){
-      
-        this.IDrepo = idrepo;
-        
-    }*/
+    @Autowired
+    NameRepository namerepo;
+
+    public static String generateUniqueRandomNumericId(int length) {
+        while (true) {
+            String id = generateRandomNumericId(length);
+            if (!useIds.contains(id)) {
+                useIds.add(id);
+                return id;
+            }
+        }
+    }
+
+    private static String generateRandomNumericId(int length) {
+        StringBuilder id = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            id.append(random.nextInt(10));
+        }
+        return id.toString();
+    }
+
+    public TictactoeController(NameRepository namerepo) {
+
+        this.namerepo = namerepo;
+
+    }
 
     @GetMapping("/tictactoe")
-    public String tictactoe(Model model){
-       model.addAttribute("", model);
-       return "ttt";
+    public String tictactoe(Model model) {
+        model.addAttribute("", model);
+        return "homepageX";
     }
 
     @GetMapping("/SignUp")
-    public String signUp(Model model){
+    public String signUp(Model model) {
         model.addAttribute("name", new game());
-        return "";
+        return "Xsignup1";
     }
 
-   /* @PostMapping("/GenerateID")
-    public String GenerateID(@ModelAttribute Tictactoe newTictactoe){
-        IDrepo.save(newTictactoe);
-        return "";
-    }*/
+    @PostMapping("/SignUp")
+    public String UserName(@ModelAttribute player newPlayer) {
+        namerepo.save(newPlayer);
+
+        return "Xsignup2";
+    }
+
+    /*
+     * @PostMapping("/concerts")
+     * public String saveConcert(@ModelAttribute Concert newconcert) {
+     * concertRepo.save(newconcert);
+     * return "redirect:/concerts";
+     * }
+     * }
+     */
 
     @PostMapping("/login")
-    public String logIn(Model model){
+    public String logIn(Model model) {
         model.addAttribute("ID", model);
         return "";
     }
-    
+
     @GetMapping("/game")
-    public String Game(Model model){
-                  return "ttt";
+    public String Game(Model model) {
+        return "ttt";
     }
 }
-
-
-
-
-
-
-

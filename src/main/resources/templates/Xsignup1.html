@@ -28,7 +28,8 @@
             </div>
       </div>
       <div class="blur"></div>
-        
+         
+      
           <div class="all-wrapper">
             <div class="all">
                 <div class="div-2">
@@ -37,7 +38,7 @@
                         <img class="img1" src="https://c.animaapp.com/of3aTZ9T/img/frame-19.svg" />
                     </div>
                      <!-- <input class="name" placeholder="Enter your in-game name" type="text" /> -->
-                    <form action="Xsignup2.html">
+                    <form th:action="@{/SignUp}" th:object="${newPlayer}" method="post">
                             <input type="text" 
                             pattern="^[a-z0-9]+$" required
                             oninput="checkInput()"
@@ -54,7 +55,7 @@
                             justify-content: center;
                             text-align: center;">
 
-                            <button id="nextbutton">Next</button>
+                            <button type="submit" id="nextbutton">Next</button>
                     </form>
                 </div>
                 <!-- <a href="IDofX.html"><div class="next"><div class="text-wrapper-4">Next</div></div></a> -->
