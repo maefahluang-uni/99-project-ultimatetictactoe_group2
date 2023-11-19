@@ -46,8 +46,9 @@
                         <img class="img1" src="https://c.animaapp.com/of3aTZ9T/img/frame-19.svg" />
                     </div>
                     <!-- <input class="name" placeholder="ID : 111222" type="text" /> -->
-                    <form action="homepageO.html">
-                        <!-- <input type="text" 
+                    <form th:action="@{/XSignUp/{id}(id=${player.id})}">
+                        <!--<form th:action="@{/XSignUp/}" th:object="${newPlayer}" method="post"> 
+                            <input type="text" 
                             pattern="[0-9]{5}" required
                             oninput="checkInput()"
                             id="in-game-name" 

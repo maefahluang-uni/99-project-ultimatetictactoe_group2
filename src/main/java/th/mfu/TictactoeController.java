@@ -32,6 +32,9 @@ public class TictactoeController {
     @Autowired
     NameRepository namerepo;
 
+    @Autowired
+    IDRepository idrepo;
+
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
             String id = generateRandomNumericId(length);
@@ -50,30 +53,38 @@ public class TictactoeController {
         return id.toString();
     }
 
-    public TictactoeController(NameRepository namerepo) {
+    public TictactoeController(NameRepository namerepo, IDRepository idrepo) {
 
         this.namerepo = namerepo;
-
+        this.idrepo = idrepo;
     }
 
     @GetMapping("/tictactoe")
     public String tictactoe(Model model) {
-        model.addAttribute("", model);
+        model.addAttribute("Model", model);
         return "homepageX";
     }
 
-    @GetMapping("/SignUp")
+    @GetMapping("/XSignUp")
     public String signUp(Model model) {
         model.addAttribute("name", new game());
         return "Xsignup1";
     }
 
-    @PostMapping("/SignUp")
+    @PostMapping("/XSignUp")
     public String UserName(@ModelAttribute player newPlayer) {
         namerepo.save(newPlayer);
-
         return "Xsignup2";
     }
+
+    @Transactional
+    @GetMapping("/XSignUp/{id}")
+    public String Osignup(@ModelAttribute player newplayer, @PathVariable long id){
+        //newplayer.setId(id);
+        idrepo.save(newplayer);
+        return"homepageO";
+    }
+
 
     /*
      * @PostMapping("/concerts")
