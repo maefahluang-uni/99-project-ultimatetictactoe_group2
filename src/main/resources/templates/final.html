@@ -1,18 +1,15 @@
 <html lang="en">
 
 <head>
-    <title>Ultimate Tic-Tac-Toe </title>
-    <h1> Created by group 2</h1>
-    <p> Nyan" ko Chit dl</p>
+    <title>Ultimate Tic-Tac-Toe</title>
     <link rel="stylesheet" type="text/css" href="/static/uni.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <meta name="author" content="Michael Xing">
-    <meta name="theme-color" content="#1a237e">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="https://michaelxing.com/pfp.png">
-    <meta name="twitter:card" content="summary">
     <meta name="description" content="Ultimate Tic-Tac-Toe">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/uttt.css">
     <script type="text/javascript" data-cfasync="false" src="/static/info.js"></script>
     <script type="text/javascript" data-cfasync="false" src="/static/board.js"></script>
@@ -21,7 +18,7 @@
 
 <body>
     <div class="MainContent">
-        <h1></h1>
+        <img class="img" src="https://c.animaapp.com/JTZHMYdv/img/frame-12.svg" />
         <p></p>
         <section id="boardWrap">
         </section>
@@ -38,10 +35,7 @@
                 restrictMove: "Please make a move in the indicated area",
                 xNext: "$X$ to Move",
                 oNext: "$O$ to Move",
-                xWin: "$X$ Wins",
-                oWin: "$O$ Wins",
-                tie: "Tie",
-                restart: "<button class='BigButton' onclick='reset()'>Rematch</button>"
+                
             };
             info.setMsg(messages.start, messages.anyMove);
 
@@ -55,23 +49,25 @@
                 }
 
                 // Update info box
-                if (!state.status) {
+              if (!state.status) {
                     // noinspection JSIncompatibleTypesComparison
-                    if (state.status === null) {
+                    if (state.status == null) {
                         // Tie
-                        info.setMsg(messages.tie, messages.restart);
+                        window.location.href = "/XOtie";//connect with tie.html
                     } else {
                         // Winner
-                        info.setMsg(state.turn ? messages.xWin : messages.oWin, messages.restart);
+                        
+                       window.location.href = state.turn ? "/Xwin" : "/Owin";
                     }
-                } else {
+                } else
+                if(state.status) {
                     info.setMsg(
                         state.turn ? messages.xNext : messages.oNext,
                         state.lastMove ? messages.restrictMove : messages.anyMove
                     );
                 }
             }
-
+            
             function reset() {
                 board.reset();
                 state = new GameState();

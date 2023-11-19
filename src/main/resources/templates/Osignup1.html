@@ -37,7 +37,7 @@
                         <img class="img1" src="https://c.animaapp.com/iHSYRKPE/img/subtract.svg" />
                     </div>
                     <!-- <input class="name" placeholder="Enter your in-game name" type="text" /> -->
-                    <form action="Osignup2.html">
+                    <form th:action="@{/OSignUp/}" th:object="${newPlayer}" method="post">
                         <input type="text" 
                         pattern="^[a-z0-9]+$" required
                         oninput="checkInput()"

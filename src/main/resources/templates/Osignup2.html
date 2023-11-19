@@ -37,7 +37,7 @@
                         <img class="img1" src="https://c.animaapp.com/iHSYRKPE/img/subtract.svg" />
                     </div>
                     <!-- <input class="name" placeholder="ID : 333444" type="text" /> -->
-                    <form action="">
+                    <form th:action="@{/OSignUp/{id}(id=${player.id})}">
                         <!-- <input type="text" 
                         pattern="[0-9]{5}" required
                         oninput="checkInput()"

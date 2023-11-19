@@ -1,5 +1,4 @@
-
- class GameState {
+class GameState {
 	constructor() {
 		this.board = [];
 		for (let a = 0; a < 3; a++) {

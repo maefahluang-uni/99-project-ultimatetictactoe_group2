@@ -3,11 +3,13 @@ body {
     padding: 0;
     background: #192A32;
     color: #ecf0f1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Audiowide', sans-serif;
+	font-weight: 200;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+	
 }
 
 #boardWrap {
@@ -46,7 +48,8 @@ body {
 	background: black;
 	transition: background 0.1s ease-in-out;
 
-	--borderCol: aqua;
+	--borderCol: aqua;/*border column check yan*/
+	
 }
 
 .smallBoard::before {
@@ -267,10 +270,9 @@ body {
 }
 
 aside {
+	width: 450px;
 	display: inline-block;
 	vertical-align: top;
-	width: calc(100% - 100vh + 175px);
-	text-align: right;
 }
 
 aside h2 {
@@ -288,6 +290,11 @@ aside p:last-child, aside h2:last-child {
 .MainContent h1 + p {
 	margin-bottom: 40px;
 }
+.img {
+	
+		position: relative;
+		width: 400px; /* Adjust the width as needed */
+		height: 100px; /* Maintain the aspect ratio */}
 
 @media (max-aspect-ratio: 12/9) {
 	#boardWrap {

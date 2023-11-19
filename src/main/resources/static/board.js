@@ -83,14 +83,14 @@
 				outerBoard.appendChild(row);
 			}
 			
-			const backBtnWrap = document.createElement("P");
-			backBtnWrap.style.padding = "50px 0";
-			const backBtn = document.createElement("A");
-			backBtn.textContent = "Back";
-			backBtn.className = "BigButton";
-			backBtn.setAttribute("href", "/UltimateTTT/v3");
-			backBtnWrap.appendChild(backBtn);
-			outerBoard.appendChild(backBtnWrap);
+			const restartBtnWrap = document.createElement("P");
+			restartBtnWrap.style.padding = "50px 0";
+			const restartBtn = document.createElement("A");
+			restartBtn.textContent = "Restart";
+			restartBtn.className = "BigButton";
+			restartBtn.setAttribute("href", "/restartgame");
+			restartBtnWrap.appendChild(restartBtn);
+			outerBoard.appendChild(restartBtnWrap);
 		}
 		
 		/**

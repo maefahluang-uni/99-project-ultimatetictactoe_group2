@@ -79,12 +79,67 @@ public class TictactoeController {
 
     @Transactional
     @GetMapping("/XSignUp/{id}")
-    public String Osignup(@ModelAttribute player newplayer, @PathVariable long id){
+    public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id){
+        String Id = generateRandomNumericId(5);
+        id = Long.valueOf(Id);
         newplayer.setId(id);
         idrepo.save(newplayer);
         return"homepageO";
     }
 
+    @GetMapping("/OSignUp")
+    public String signUp1(Model model) {
+        model.addAttribute("name", new game());
+        return "Osignup1";
+    }
+
+    @PostMapping("/OSignUp")
+    public String UserName1(@ModelAttribute player newPlayer) {
+        namerepo.save(newPlayer);
+        return "Osignup2";
+    }
+
+    @Transactional
+    @GetMapping("/OSignUp/{id}")
+    public String Osignup(@ModelAttribute player newplayer, @PathVariable long id){
+        String Id = generateRandomNumericId(5);
+        id = Long.valueOf(Id);
+        newplayer.setId(id);
+        idrepo.save(newplayer);
+        return"final";
+    }
+
+    @GetMapping("/restartgame")
+    public String restart(Model model){
+        return "final";
+    }
+
+    @GetMapping("/replay")
+    public String replay(Model model){
+        return "final";
+    }
+
+    @GetMapping("/tie")
+    public String Tie(Model model){
+        return "XOtie";
+    }
+
+    @GetMapping("/Xwin")
+    public String Xwinner(Model model){
+        return "Xwinner";
+    }
+
+    @GetMapping("/Owin")
+    public String Owinner(Model model){
+        return "Owinner";
+    }
+
+   @GetMapping("/Xlogin")
+   public String loginX(Model model){
+    return "Xlogin";
+   }
+
+   
 
     /*
      * @PostMapping("/concerts")
@@ -105,4 +160,5 @@ public class TictactoeController {
     public String Game(Model model) {
         return "ttt";
     }
+
 }

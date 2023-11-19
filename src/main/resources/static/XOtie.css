@@ -1,0 +1,465 @@
+.winner {
+    background-color: #192a32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .winner .frame-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .winner .frame {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  
+  }
+  
+  .winner .noto-trophy {
+    position: relative;
+    width: 230px;
+    height: 155px;
+  }
+  
+  .winner .div {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .winner .img {
+    position: relative;
+  }
+  
+  .winner .text-wrapper {
+    position: relative;
+    width: 505px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    color: #ffa828;
+    font-size: 80px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .winner .player {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .winner .div-wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding: 6px 6px 6px 11px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .winner .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 38px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .winner .frame-2 {
+    position: relative;
+    width: 426px;
+    height: 46px;
+  }
+  
+  
+  
+  .winner .frame-3 {
+    position: relative;
+    width: 180px;
+    height: 46px;
+  }
+  
+  
+  .replay {
+    display: flex;
+    width: 180px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    background-color: #31c3be;
+    border-radius: 30px;
+    cursor: pointer; /* Add cursor pointer for interactive element */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */  
+  }
+  .replay:hover { 
+    border: solid 3px #00fff7; /* Add border on hover */
+    padding: 8px; /* Adjust padding to accommodate the border */
+  }
+  
+  .replay:active {
+    background-color: #108c79; /* Change background color when pressed */
+  }
+  
+  .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+    color: #192a32;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    top: -1px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .text-wrapper-3:hover {
+    color: #ffffff; /* Change color on hover */
+  }
+  
+  .text-wrapper-3:active {
+    color: #000000; /* Change color when pressed */
+  }
+  
+  .exit{
+    display: flex;
+    width: 180px;
+    height: 40px;
+    left: 246px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    background-color: #dd1717;
+    border-radius: 30px;
+    cursor: pointer; /* Add cursor pointer for interactive element */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */  
+  }
+  .exit:hover { 
+    border: solid 3px rgb(255, 255, 255);
+    padding: 8px; /* Adjust padding to accommodate the border */
+  }
+  
+  .exit:active {
+    background-color: #790d0d; /* Change background color when pressed */
+  }
+  .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+    color: #192a32;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .text-wrapper-4:hover {
+    color: #ffffff; /* Change color on hover */
+  }
+  
+  .text-wrapper-4:active {
+    color: #000000; /* Change color when pressed */
+  }
+  .save{
+    display: flex;
+    width: 180px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    background-color: #f2b237;
+    border-radius: 30px;
+    cursor: pointer; /* Add cursor pointer for interactive element */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */  
+  }
+  .save:hover { 
+    border: solid 3px rgb(255, 255, 255);
+    padding: 8px; /* Adjust padding to accommodate the border */
+  }
+  
+  .save:active {
+    background-color: #f2b237; /* Change background color when pressed */
+  }
+  .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+    color: #192a32;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .text-wrapper-5:hover {
+    color: #ffffff; /* Change color on hover */
+  }
+  
+  .text-wrapper-5:active {
+    color: #000000; /* Change color when pressed */
+  }
+  @media (max-width: 860px){
+    .winner {
+      background-color: #192a32;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .winner .frame-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .winner .frame {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    
+    }
+    
+    .winner .noto-trophy {
+      position: relative;
+      width: 150px;
+      height: 100px;
+    }
+    
+    .winner .div {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+    
+     .img {
+      position: relative;
+      width: 75px;
+      height: 50px;
+    }
+    
+    .winner .text-wrapper {
+      position: relative;
+      width: 252.5px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 400;
+      color: #ffa828;
+      font-size: 40px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+    
+    .winner .player {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 5px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .winner .div-wrapper {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 10px;
+      padding: 6px 6px 6px 11px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .winner .text-wrapper-2 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 19px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .winner .frame-2 {
+      position: relative;
+      width: 213px;
+      height: 23px;
+    }
+    
+    
+    
+    .winner .frame-3 {
+      position: relative;
+      width: 90px;
+      height: 23px;
+    }
+    
+    
+    .replay {
+      display: flex;
+      width: 90px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      position: absolute;
+      background-color: #31c3be;
+      border-radius: 15px;
+      cursor: pointer; /* Add cursor pointer for interactive element */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */  
+    }
+    .replay:hover { 
+      border: solid 3px #00fff7; /* Add border on hover */
+      padding: 8px; /* Adjust padding to accommodate the border */
+    }
+    
+    .replay:active {
+      background-color: #108c79; /* Change background color when pressed */
+    }
+    
+    .text-wrapper-3 {
+      position: relative;
+      width: fit-content;
+      font-family: 'Audiowide', sans-serif;
+      font-weight: 400;
+      color: #192a32;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+      top: -1px;
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+    }
+    
+    .text-wrapper-3:hover {
+      color: #ffffff; /* Change color on hover */
+    }
+    
+    .text-wrapper-3:active {
+      color: #000000; /* Change color when pressed */
+    }
+    
+    .exit{
+      display: flex;
+      width: 90px;
+      height: 20px;
+      left: 123px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      position: absolute;
+      background-color: #dd1717;
+      border-radius: 15px;
+      cursor: pointer; /* Add cursor pointer for interactive element */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */  
+    }
+    .exit:hover { 
+      border: solid 3px rgb(255, 255, 255);
+      padding: 8px; /* Adjust padding to accommodate the border */
+    }
+    
+    .exit:active {
+      background-color: #790d0d; /* Change background color when pressed */
+    }
+    .text-wrapper-4 {
+      position: relative;
+      width: fit-content;
+      font-family: 'Audiowide', sans-serif;
+      font-weight: 400;
+      color: #192a32;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+    }
+    
+    .text-wrapper-4:hover {
+      color: #ffffff; /* Change color on hover */
+    }
+    
+    .text-wrapper-4:active {
+      color: #000000; /* Change color when pressed */
+    }
+    .save{
+      display: flex;
+      width: 90px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      position: absolute;
+      background-color: #f2b237;
+      border-radius: 15px;
+      cursor: pointer; /* Add cursor pointer for interactive element */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */  
+    }
+    .save:hover { 
+      border: solid 3px rgb(255, 255, 255);
+      padding: 8px; /* Adjust padding to accommodate the border */
+    }
+    
+    .save:active {
+      background-color: #f2b237; /* Change background color when pressed */
+    }
+    .text-wrapper-5 {
+      position: relative;
+      width: fit-content;
+      font-family: 'Audiowide', sans-serif;
+      font-weight: 400;
+      color: #192a32;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transition for smooth effect */
+    }
+    
+    .text-wrapper-5:hover {
+      color: #ffffff; /* Change color on hover */
+    }
+    
+    .text-wrapper-5:active {
+      color: #000000; /* Change color when pressed */
+    }
+  }
