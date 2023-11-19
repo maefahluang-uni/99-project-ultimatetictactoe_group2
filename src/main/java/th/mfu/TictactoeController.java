@@ -80,7 +80,7 @@ public class TictactoeController {
     @Transactional
     @GetMapping("/XSignUp/{id}")
     public String Osignup(@ModelAttribute player newplayer, @PathVariable long id){
-        //newplayer.setId(id);
+        newplayer.setId(id);
         idrepo.save(newplayer);
         return"homepageO";
     }
