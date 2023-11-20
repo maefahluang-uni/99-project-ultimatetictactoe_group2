@@ -28,12 +28,17 @@ public class TictactoeController {
 
     private static final Random random = new Random();
     private static final Set<String> useIds = new HashSet<>();
+    player p1=null;
+    player p2= null;
 
     @Autowired
     NameRepository namerepo;
 
     @Autowired
     IDRepository idrepo;
+
+    @Autowired
+    Playerrepository playerrepo;
 
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
@@ -53,10 +58,11 @@ public class TictactoeController {
         return id.toString();
     }
 
-    public TictactoeController(NameRepository namerepo, IDRepository idrepo) {
+    public TictactoeController(NameRepository namerepo, IDRepository idrepo, Playerrepository playerrepio) {
 
         this.namerepo = namerepo;
         this.idrepo = idrepo;
+        this.playerrepo = playerrepio;
     }
 
     @GetMapping("/tictactoe")
@@ -67,13 +73,17 @@ public class TictactoeController {
 
     @GetMapping("/XSignUp")
     public String signUp(Model model) {
-        model.addAttribute("name", new game());
+        
         return "Xsignup1";
     }
 
     @PostMapping("/XSignUp")
-    public String UserName(@ModelAttribute player newPlayer) {
-        namerepo.save(newPlayer);
+    public String UserName(Model model,@RequestParam String ingamename) {
+        model.addAttribute("name", new game());
+        Long id= Long.parseLong(generateUniqueRandomNumericId(5));
+        p1= new player( id,ingamename);
+        playerrepo.save(p1);
+        model.addAttribute("id",p1.getId() );
         return "Xsignup2";
     }
 
@@ -89,13 +99,16 @@ public class TictactoeController {
 
     @GetMapping("/OSignUp")
     public String signUp1(Model model) {
-        model.addAttribute("name", new game());
         return "Osignup1";
     }
 
     @PostMapping("/OSignUp")
-    public String UserName1(@ModelAttribute player newPlayer) {
-        namerepo.save(newPlayer);
+    public String UserName1(Model model,@RequestParam String ingamename) {
+        model.addAttribute("name", new game());
+        Long id= Long.parseLong(generateUniqueRandomNumericId(5));
+        p2= new player( id,ingamename);
+        playerrepo.save(p2);
+        model.addAttribute("id",p2.getId() );
         return "Osignup2";
     }
 
@@ -141,13 +154,13 @@ public class TictactoeController {
 
     @PostMapping("/Xlogin")
     public String loginX(@RequestParam Long playerId, Model model) {
-        player player = idrepo.findById(playerId).orElse(null);
+        player player = playerrepo.findById(playerId).get();
 
         if (player != null) {
             model.addAttribute("player", player);
             return "redirect:/Ologin";
         } else {
-            return "redirect:/homepageX.html";
+            return "homepageX";
         }
     }
 
@@ -158,13 +171,13 @@ public class TictactoeController {
 
     @PostMapping("/Ologin")
     public String loginO(@RequestParam Long playerId, Model model) {
-        player player = idrepo.findById(playerId).orElse(null);
+        player player = playerrepo.findById(playerId).get();
 
         if (player != null) {
             model.addAttribute("player", player);
             return "redirect:/final.html";
         } else {
-            return "redirect:/homepageO.html";
+            return "homepageO";
         }
     }
 

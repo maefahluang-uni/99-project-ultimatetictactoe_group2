@@ -8,12 +8,20 @@ import javax.persistence.Id;
 @Entity
 public class player {
      @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;  
     private String name;
 
     public String getName() {
         return name;
+    }
+
+    public player(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public player(){
+
     }
 
     public void setName(String name) {

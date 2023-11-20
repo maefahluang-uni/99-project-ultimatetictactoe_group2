@@ -45,7 +45,7 @@
                         <img class="img1" src="https://c.animaapp.com/of3aTZ9T/img/frame-19.svg" />
                     </div>
                     <!-- <input class="name" placeholder="ID : 111222" type="text" /> -->
-                    <form action="/Xlogin" method="post">
+                    <form th:action="@{/Xlogin}" method="post">
                         <input type="text" pattern="[0-9]{5}" required oninput="checkInput()" id="in-game-name"
                                name="playerId" class="textfield" placeholder="Enter Your Game ID" style="font-family: 'Orbitron',
                                sans-serif; font-size: 30px;
