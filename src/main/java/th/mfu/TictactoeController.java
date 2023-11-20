@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TictactoeController {
@@ -133,26 +134,38 @@ public class TictactoeController {
         return "Owinner";
     }
 
-   @GetMapping("/Xlogin")
-   public String loginX(Model model){
-    return "Xlogin";
-   }
+    @GetMapping("/Xlogin")
+    public String showXLoginPage() {
+        return "Xlogin";
+    }
 
-   
+    @PostMapping("/Xlogin")
+    public String loginX(@RequestParam Long playerId, Model model) {
+        player player = idrepo.findById(playerId).orElse(null);
 
-    /*
-     * @PostMapping("/concerts")
-     * public String saveConcert(@ModelAttribute Concert newconcert) {
-     * concertRepo.save(newconcert);
-     * return "redirect:/concerts";
-     * }
-     * }
-     */
+        if (player != null) {
+            model.addAttribute("player", player);
+            return "redirect:/Ologin";
+        } else {
+            return "redirect:/homepageX.html";
+        }
+    }
 
-    @PostMapping("/login")
-    public String logIn(Model model) {
-        model.addAttribute("ID", model);
-        return "";
+     @GetMapping("/Ologin")
+    public String showOLoginPage() {
+        return "Ologin";
+    }
+
+    @PostMapping("/Ologin")
+    public String loginO(@RequestParam Long playerId, Model model) {
+        player player = idrepo.findById(playerId).orElse(null);
+
+        if (player != null) {
+            model.addAttribute("player", player);
+            return "redirect:/final.html";
+        } else {
+            return "redirect:/homepageO.html";
+        }
     }
 
     @GetMapping("/game")
