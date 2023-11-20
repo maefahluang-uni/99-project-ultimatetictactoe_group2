@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ultimate Tic-Tac-Toe">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/uttt.css">
     <script type="text/javascript" data-cfasync="false" src="/static/info.js"></script>
     <script type="text/javascript" data-cfasync="false" src="/static/board.js"></script>
@@ -35,7 +35,9 @@
                 restrictMove: "Please make a move in the indicated area",
                 xNext: "$X$ to Move",
                 oNext: "$O$ to Move",
-                
+                xWin: "Player X wins!",
+                oWin: "Player O wins!",
+                tie: "It's a tie!",
             };
             info.setMsg(messages.start, messages.anyMove);
 
@@ -49,25 +51,46 @@
                 }
 
                 // Update info box
-              if (!state.status) {
-                    // noinspection JSIncompatibleTypesComparison
+                if (!state.status) {
+                    let winner;
                     if (state.status == null) {
                         // Tie
+<<<<<<< HEAD
                         window.location.href = "/tie";//connect with tie.html
+=======
+                        const xCount = state.board.reduce((acc, row) => acc + row.filter(cell => cell === true).length, 0);
+                        const oCount = state.board.reduce((acc, row) => acc + row.filter(cell => cell === false).length, 0);
+       
+
+                        if (xCount > oCount) {
+                            winner = "Player X";
+                            alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
+                            window.location.href = "/Xwin";
+                        } else if (oCount > xCount) {
+                            winner = "Player O";
+                            alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
+                            window.location.href = "/Owin";
+                        } else {
+                            alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
+                            winner = "It's a tie!";
+                            window.location.href = "/tie";
+                        }
+>>>>>>> 3f821aef980da6bf85d89243f2585fc23a388ff2
                     } else {
                         // Winner
-                        
-                       window.location.href = state.turn ? "/Xwin" : "/Owin";
+                        winner = state.turn ? 'X' : 'O';
+                        info.setMsg(state.turn ? "X wins" : "O wins");
+                        window.location.href = state.turn ? "/Xwin" : "/Owin";
+                        alert(`Player ${winner} wins!`);
                     }
-                } else
-                if(state.status) {
+                } else if (state.status) {
                     info.setMsg(
                         state.turn ? messages.xNext : messages.oNext,
                         state.lastMove ? messages.restrictMove : messages.anyMove
                     );
                 }
             }
-            
+
             function reset() {
                 board.reset();
                 state = new GameState();
