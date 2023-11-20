@@ -80,12 +80,12 @@ public class TictactoeController {
     @Transactional
     @GetMapping("/XSignUp/{id}")
     public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id){
-        String Id = generateRandomNumericId(5);
-        id = Long.valueOf(Id);
-        newplayer.setId(id);
+        String uniqueId = generateUniqueRandomNumericId(5);
+        newplayer.setId(Long.valueOf(uniqueId));
         idrepo.save(newplayer);
-        return"homepageO";
+        return "homepageO";
     }
+    
 
     @GetMapping("/OSignUp")
     public String signUp1(Model model) {
