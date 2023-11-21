@@ -1,15 +1,18 @@
-package th.mfu;
+package th.mfu.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class player {
      @Id
     private long id;  
     private String name;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private game  game;
 
     public String getName() {
         return name;
