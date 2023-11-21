@@ -179,6 +179,7 @@ public class TictactoeController {
         if (player != null) {
             model.addAttribute("player", player);
             return "final";
+            
         } else {
             return "redirect:/OSignUp";
         }
