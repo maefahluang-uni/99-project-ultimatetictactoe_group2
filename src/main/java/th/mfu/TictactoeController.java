@@ -158,7 +158,7 @@ public class TictactoeController {
 
         if (player != null) {
             model.addAttribute("player", player);
-            return "redirect:/Ologin";
+            return "homepageO";
         } else {
             return "homepageX";
         }
@@ -175,15 +175,10 @@ public class TictactoeController {
 
         if (player != null) {
             model.addAttribute("player", player);
-            return "redirect:/final.html";
+            return "final";
         } else {
-            return "homepageO";
+            return "redirect:/OSignUp";
         }
-    }
-
-    @GetMapping("/game")
-    public String Game(Model model) {
-        return "ttt";
     }
 
 }

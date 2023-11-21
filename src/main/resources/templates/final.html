@@ -54,10 +54,7 @@
                 if (!state.status) {
                     let winner;
                     if (state.status == null) {
-                        // Tie
-<<<<<<< HEAD
-                        window.location.href = "/tie";//connect with tie.html
-=======
+                       
                         const xCount = state.board.reduce((acc, row) => acc + row.filter(cell => cell === true).length, 0);
                         const oCount = state.board.reduce((acc, row) => acc + row.filter(cell => cell === false).length, 0);
        
@@ -75,7 +72,6 @@
                             winner = "It's a tie!";
                             window.location.href = "/tie";
                         }
->>>>>>> 3f821aef980da6bf85d89243f2585fc23a388ff2
                     } else {
                         // Winner
                         winner = state.turn ? 'X' : 'O';
