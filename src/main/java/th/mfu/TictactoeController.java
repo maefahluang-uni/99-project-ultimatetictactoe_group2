@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import th.mfu.domain.game;
+import th.mfu.domain.player;
+
 @Controller
 public class TictactoeController {
 
@@ -181,4 +184,5 @@ public class TictactoeController {
         }
     }
 
+    
 }
