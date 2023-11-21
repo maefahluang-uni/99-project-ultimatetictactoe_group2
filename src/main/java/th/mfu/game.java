@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.persistence.Entity;
+
+@Entity
 public class game {
     private String name;
     Scanner scanner = new Scanner(System.in);
