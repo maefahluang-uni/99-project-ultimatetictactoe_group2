@@ -52,6 +52,9 @@ public class TictactoeController {
             id.append(random.nextInt(10));
         }
         return id.toString();
+
+
+        
     }
 
     public TictactoeController( Playerrepository playerrepio) {
@@ -168,6 +171,7 @@ public class TictactoeController {
         if (player != null) {
             model.addAttribute("player", player);
             return "final";
+            
         } else {
             return "redirect:/OSignUp";
         }
