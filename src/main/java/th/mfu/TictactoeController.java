@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 import java.util.Set;
 
 import org.apache.tomcat.jni.Address;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -25,10 +27,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import th.mfu.domain.game;
 import th.mfu.domain.player;
+import th.mfu.domain.winner;
 
 @Controller
 public class TictactoeController {
-
+    private static final Logger logger = LoggerFactory.getLogger(TictactoeController.class);
     private static final Random random = new Random();
     private static final Set<String> useIds = new HashSet<>();
     player p1=null;
@@ -42,6 +45,9 @@ public class TictactoeController {
 
     @Autowired
     Playerrepository playerrepo;
+
+    @Autowired
+    WinnerRepository winnerrepo;
 
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
@@ -61,11 +67,12 @@ public class TictactoeController {
         return id.toString();
     }
 
-    public TictactoeController(Playerrepository playerrepio) {
+    public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo) {
 
         // this.namerepo = namerepo;
         // this.idrepo = idrepo;
         this.playerrepo = playerrepio;
+        this.winnerrepo = winnerrepo;
     }
 
     @GetMapping("/tictactoe")
@@ -140,13 +147,20 @@ public class TictactoeController {
     }
 
     @GetMapping("/Xwin")
-    public String Xwinner(Model model){
-        
+    public String Xwinner(@ModelAttribute winner winner){
+        player player = playerrepo.findById(p1.getId()).get();
+        winner.setPlayer(player);
+        winnerrepo.save(winner);
+        logger.info("Inside Xwinner method");
         return "Xwinner";
     }
 
     @GetMapping("/Owin")
-    public String Owinner(Model model){
+    public String Owinner(@ModelAttribute winner winner){
+        player player = playerrepo.findById(p2.getId()).get();
+        winner.setPlayer(player);
+        winnerrepo.save(winner);
+        logger.info("Inside Owinner method");
         return "Owinner";
     }
 
@@ -157,7 +171,7 @@ public class TictactoeController {
 
     @PostMapping("/Xlogin")
     public String loginX(@RequestParam Long playerId, Model model) {
-        player player = playerrepo.findById(playerId).get();
+        player player = playerrepo.findById(playerId).orElse(null);
 
         if (player != null) {
             model.addAttribute("player", player);
@@ -174,13 +188,13 @@ public class TictactoeController {
 
     @PostMapping("/Ologin")
     public String loginO(@RequestParam Long playerId, Model model) {
-        player player = playerrepo.findById(playerId).get();
+        player player = playerrepo.findById(playerId).orElse(null);
 
         if (player != null) {
             model.addAttribute("player", player);
             return "final";
         } else {
-            return "redirect:/OSignUp";
+            return "homepageO";
         }
     }
 

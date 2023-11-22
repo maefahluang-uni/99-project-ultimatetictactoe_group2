@@ -12,6 +12,14 @@ public class winner {
     private String name;
 
    
+    public player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(player player) {
+        this.player = player;
+    }
+
     @OneToOne(cascade =CascadeType.ALL )
     private player player;
      String getName() {
