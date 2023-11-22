@@ -167,11 +167,17 @@ public class TictactoeController {
     }
 
     @GetMapping("/Owin")
-    public String Owinner(@ModelAttribute winner winner){
+    public String Owinner(@ModelAttribute winner winner,@ModelAttribute loser loser){
         player player = playerrepo.findById(p2.getId()).get();
         winner.setPlayer(player);
         winnerrepo.save(winner);
         logger.info("Inside Owinner method");
+
+        player player2 = playerrepo.findById(p1.getId()).get();
+        loser.setPlayer(player2);
+        loserrepo.save(loser);
+        logger.info("Inside Xloser method");
+
         return "Owinner";
     }
 
@@ -188,7 +194,7 @@ public class TictactoeController {
             model.addAttribute("player", player);
             return "homepageO";
         } else {
-            return "homepageX";
+            return "homepageX2";
         }
     }
 
@@ -205,7 +211,7 @@ public class TictactoeController {
             model.addAttribute("player", player);
             return "final";
         } else {
-            return "homepageO";
+            return "homepageO2";
         }
     }
 

@@ -56,17 +56,17 @@
 }
 
 .p {
-  position: relative;
-  flex: 1;
-  align-self: stretch;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 500;
-  color: #a8bec9;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: red; /* Change the font color to red */
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
 
 .frame-2 {
 display: flex;
@@ -199,19 +199,18 @@ display: flex;
         line-height: normal;
       }
 
-       .p {
+      .p {
         position: relative;
         flex: 1;
         align-self: stretch;
         font-family: 'Orbitron', sans-serif;
-        font-weight: 200;
-        color: #a8bec9;
-        font-size: 10px;
+        font-weight: 500;
+        color: red; /* Change the font color to red */
+        font-size: 20px;
         text-align: center;
         letter-spacing: 0;
         line-height: normal;
       }
-
       .frame-2 {
         display: flex;
           flex-direction: column;
