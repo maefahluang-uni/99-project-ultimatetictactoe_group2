@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import th.mfu.domain.game;
+import th.mfu.domain.loser;
 import th.mfu.domain.player;
 import th.mfu.domain.winner;
 
@@ -49,6 +50,9 @@ public class TictactoeController {
     @Autowired
     WinnerRepository winnerrepo;
 
+    @Autowired
+    LoserRepository loserrepo;
+
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
             String id = generateRandomNumericId(length);
@@ -67,12 +71,13 @@ public class TictactoeController {
         return id.toString();
     }
 
-    public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo) {
+    public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo, LoserRepository loserrepo) {
 
         // this.namerepo = namerepo;
         // this.idrepo = idrepo;
         this.playerrepo = playerrepio;
         this.winnerrepo = winnerrepo;
+        this.loserrepo = loserrepo;
     }
 
     @GetMapping("/tictactoe")
@@ -147,11 +152,17 @@ public class TictactoeController {
     }
 
     @GetMapping("/Xwin")
-    public String Xwinner(@ModelAttribute winner winner){
+    public String Xwinner(@ModelAttribute winner winner, @ModelAttribute loser loser){
         player player = playerrepo.findById(p1.getId()).get();
         winner.setPlayer(player);
         winnerrepo.save(winner);
         logger.info("Inside Xwinner method");
+
+        player player2 = playerrepo.findById(p2.getId()).get();
+        loser.setPlayer(player2);
+        loserrepo.save(loser);
+        logger.info("Inside Oloser method");
+
         return "Xwinner";
     }
 

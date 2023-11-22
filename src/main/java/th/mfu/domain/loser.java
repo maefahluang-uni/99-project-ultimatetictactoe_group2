@@ -18,6 +18,14 @@ public class loser{
         return name;
     }
 
+    public player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(player player) {
+        this.player = player;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
