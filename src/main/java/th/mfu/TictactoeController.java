@@ -10,6 +10,7 @@ import java.util.Random;
 import javax.transaction.Transactional;
 import java.util.Set;
 
+import org.apache.tomcat.jni.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,12 @@ public class TictactoeController {
     player p1=null;
     player p2= null;
 
+    // @Autowired
+    // NameRepository namerepo;
+
+    // @Autowired
+    // IDRepository idrepo;
+
     @Autowired
     Playerrepository playerrepo;
 
@@ -52,13 +59,12 @@ public class TictactoeController {
             id.append(random.nextInt(10));
         }
         return id.toString();
-
-
-        
     }
 
-    public TictactoeController( Playerrepository playerrepio) {
+    public TictactoeController(Playerrepository playerrepio) {
 
+        // this.namerepo = namerepo;
+        // this.idrepo = idrepo;
         this.playerrepo = playerrepio;
     }
 
@@ -84,11 +90,11 @@ public class TictactoeController {
         return "Xsignup2";
     }
 
-    @Transactional
     @GetMapping("/XSignUp/{id}")
     public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id){
         String uniqueId = generateUniqueRandomNumericId(5);
         newplayer.setId(Long.valueOf(uniqueId));
+        //idrepo.save(newplayer);
         return "homepageO";
     }
     
@@ -114,6 +120,7 @@ public class TictactoeController {
         String Id = generateRandomNumericId(5);
         id = Long.valueOf(Id);
         newplayer.setId(id);
+        //idrepo.save(newplayer);
         return"final";
     }
 
@@ -134,6 +141,7 @@ public class TictactoeController {
 
     @GetMapping("/Xwin")
     public String Xwinner(Model model){
+        
         return "Xwinner";
     }
 
@@ -171,7 +179,6 @@ public class TictactoeController {
         if (player != null) {
             model.addAttribute("player", player);
             return "final";
-            
         } else {
             return "redirect:/OSignUp";
         }
