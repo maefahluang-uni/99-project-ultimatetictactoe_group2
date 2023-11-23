@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,144 +9,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/global.css">
+    <link rel="stylesheet" href="/static/homepageXO.css">
+</head>
+
+<body>
     <style>
-        body {
+        .table th,
+        .table td {
             font-family: 'Orbitron', sans-serif;
-            background-color: #192a32;
+            font-weight: 600;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        h1, h2, th {
-            color: #31c3be;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #a8bec9;
-            text-align: center;
-        }
-
-        .mt-5 {
-            margin-top: 5px;
-        }
-
-        .mb-4 {
-            margin-bottom: 4px;
-        }
-
-        .table {
-            margin-top: 20px;
-            color: #a8bec9;
-        }
-
-        .table th, .table td {
-            border: 1px solid #a8bec9;
-            padding: 10px;
-        }
-
-        .button1, .button2 {
-            display: flex;
-            width: 480px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px;
-            position: relative;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button1:hover, .button2:hover {
-            border: solid 3px #00fff7;
-            padding: 8px;
-        }
-
-        .button1.active {
-            background-color: #31c3be;
-        }
-
-        .button2.active {
-            background-color: #f2b237;
-        }
-
-        .text-wrapper-2 {
-            position: relative;
-            width: fit-content;
-            font-family: 'Audiowide', sans-serif;
-            font-weight: 400;
-            color: #192a32;
             font-size: 20px;
-            letter-spacing: 0;
-            line-height: normal;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-align: center;
+            padding: 10px;
         }
 
-        .text-wrapper-2:hover {
-            color: #ffffff;
-        }
-
-        .text-wrapper-2:active {
+        /* Set the color for loser names to black */
+        .table tbody tr th,
+        .table tbody tr td {
             color: #000000;
         }
 
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
+        .winner {
+            color: #00ff00;
+        }
 
-            table {
-                font-size: 14px;
-            }
-
-            .button1, .button2 {
-                width: 280px;
-                height: 38px;
-                padding: 10px;
-            }
+        .loser {
+            color: #ff0000;
         }
     </style>
-</head>
-<body>
-    <h1 class="mt-5 mb-4">Game Results</h1>
-    
-    <!-- Display Winners -->
-    <h2>Winners</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="winner : ${winners}">
-                <td th:text="${winner.name}"></td> 
-            </tr>
-        </tbody>
-    </table>
 
-    <h2>Losers</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="loser : ${losers}">
-                <td th:text="${loser.getName()}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="log-in">
+        <div class="frame-wrapper">
+            <div class="frame">
+                <img class="img" src="https://c.animaapp.com/lOqBbgw9/img/frame-9.svg" />
+                <div class="div">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Winner</th>
+                        </thead>
+                        <tbody>
+                            <tr th:each="winner : ${winners}">
+                                <td class="winner" th:text="${winner.name}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Loser</th>
+                        </thead>
+                        <tbody>
+                            <tr th:each="loser : ${losers}">
+                                <td class="loser" th:text="${loser.getName()}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="frame-2">
+                    <a href="/replay" class="button1">
+                        <div class="text-wrapper-2">Replay</div>
+                    </a>
+                    <!--form th:action=""></form-->
+                    <a href="/tictactoe" class="button2">
+                        <div class="text-wrapper-2">Exit</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
