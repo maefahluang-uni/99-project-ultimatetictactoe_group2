@@ -12,18 +12,19 @@ public class winner {
     private String name;
 
    
+    @OneToOne(cascade =CascadeType.ALL )
+    private player player;
+    
+    public String getName() {
+        return name;
+    }
+
     public player getPlayer() {
         return player;
     }
 
     public void setPlayer(player player) {
         this.player = player;
-    }
-
-    @OneToOne(cascade =CascadeType.ALL )
-    private player player;
-     String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -37,6 +38,5 @@ public class winner {
     public void setId(long id) {
         this.id = id;
     }
-
     
 }
