@@ -4,7 +4,7 @@ Please use this template for your project.
 
 List your group's member's below with ID and name.
 
-<b> Members' List <b>
+<b> Members' List </b>
 
 |       Name          |      ID        |   Account  |
 |---------------------|----------------|------------|
