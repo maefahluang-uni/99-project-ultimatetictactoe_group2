@@ -62,7 +62,8 @@
                         if (xCount > oCount) {
                             winner = "Player X";
                             alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
-                            window.location.href = "/Xwin";
+                            // window.location.href = "/Xwin";
+                            return "/Xwin";
                         } else if (oCount > xCount) {
                             winner = "Player O";
                             alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
