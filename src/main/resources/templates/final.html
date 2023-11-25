@@ -67,11 +67,13 @@
                         } else if (oCount > xCount) {
                             winner = "Player O";
                             alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
-                            window.location.href = "/Owin";
+                            // window.location.href = "/Owin";
+                            return "/Owwin";
                         } else {
                             alert(`The winner is: ${winner} \n X Count: ${xCount} \n O Count: ${oCount}`);
                             winner = "It's a tie!";
-                            window.location.href = "/tie";
+                            // window.location.href = "/tie";
+                            return "/tie";
                         }
                     } else {
                         // Winner
