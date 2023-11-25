@@ -1,5 +1,6 @@
 package th.mfu.domain;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +11,6 @@ public class winner {
      @Id
     private long id;  
     private String name;
-
    
     @OneToOne(cascade =CascadeType.ALL )
     private player player;
@@ -38,5 +38,6 @@ public class winner {
     public void setId(long id) {
         this.id = id;
     }
-    
+
+
 }

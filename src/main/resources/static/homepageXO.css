@@ -140,6 +140,7 @@ display: flex;
     background-color: #9a6c17; /* Change background color when pressed */
 }
 
+
 @media (max-width: 768px){
     .log-in {
         position: relative;
