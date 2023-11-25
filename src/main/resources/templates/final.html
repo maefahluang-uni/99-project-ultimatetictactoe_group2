@@ -79,8 +79,10 @@
                         // Winner
                         winner = state.turn ? 'X' : 'O';
                         info.setMsg(state.turn ? "X wins" : "O wins");
-                        window.location.href = state.turn ? "/Xwin" : "/Owin";
+                        // window.location.href = state.turn ? "/Xwin" : "/Owin";
+                        win = state.turn ? "/Xwin" : "/Owin";
                         alert(`Player ${winner} wins!`);
+                        return win;
                     }
                 } else if (state.status) {
                     info.setMsg(
