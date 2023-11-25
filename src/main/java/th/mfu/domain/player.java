@@ -11,8 +11,9 @@ public class player {
     private long id;  
     private String name;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private game  game;
+    // @ManyToOne(cascade = CascadeType.MERGE)
+    // private game  game;
+
 
     public String getName() {
         return name;

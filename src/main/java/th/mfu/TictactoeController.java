@@ -1,9 +1,10 @@
 package th.mfu;
 
-
-
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
-
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -11,47 +12,62 @@ import javax.transaction.Transactional;
 import java.util.Set;
 
 import org.apache.tomcat.jni.Address;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import th.mfu.domain.game;
+import th.mfu.domain.loser;
 import th.mfu.domain.player;
+import th.mfu.domain.winner;
 
 @Controller
 public class TictactoeController {
-
+    private static final Logger logger = LoggerFactory.getLogger(TictactoeController.class);
     private static final Random random = new Random();
     private static final Set<String> useIds = new HashSet<>();
-    player p1=null;
-    player p2= null;
+    player p1 = null;
+    player p2 = null;
 
-    @Autowired
-    NameRepository namerepo;
+    // @Autowired
+    // NameRepository namerepo;
 
-    @Autowired
-    IDRepository idrepo;
+    // @Autowired
+    // IDRepository idrepo;
 
     @Autowired
     Playerrepository playerrepo;
 
+    @Autowired
+    WinnerRepository winnerrepo;
+
+    @Autowired
+    LoserRepository loserrepo;
+
+
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
-            String id = generateRandomNumericId(length);
+            double tempId=Math.random()*100000;
+            // String id = generateRandomNumericId(length);
+            
+            String id=String.valueOf((int)tempId);
             if (!useIds.contains(id)) {
                 useIds.add(id);
                 return id;
             }
         }
     }
+
 
     private static String generateRandomNumericId(int length) {
         StringBuilder id = new StringBuilder(length);
@@ -61,11 +77,13 @@ public class TictactoeController {
         return id.toString();
     }
 
-    public TictactoeController(NameRepository namerepo, IDRepository idrepo, Playerrepository playerrepio) {
+    public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo, LoserRepository loserrepo) {
 
-        this.namerepo = namerepo;
-        this.idrepo = idrepo;
+        // this.namerepo = namerepo;
+        // this.idrepo = idrepo;
         this.playerrepo = playerrepio;
+        this.winnerrepo = winnerrepo;
+        this.loserrepo = loserrepo;
     }
 
     @GetMapping("/tictactoe")
@@ -76,29 +94,27 @@ public class TictactoeController {
 
     @GetMapping("/XSignUp")
     public String signUp(Model model) {
-        
+
         return "Xsignup1";
     }
 
     @PostMapping("/XSignUp")
-    public String UserName(Model model,@RequestParam String ingamename) {
+    public String UserName(Model model, @RequestParam String ingamename) {
         model.addAttribute("name", new game());
-        Long id= Long.parseLong(generateUniqueRandomNumericId(5));
-        p1= new player( id,ingamename);
+        Long id = Long.parseLong(generateUniqueRandomNumericId(5));
+        p1 = new player(id, ingamename);
         playerrepo.save(p1);
-        model.addAttribute("id",p1.getId() );
+        model.addAttribute("id", p1.getId());
         return "Xsignup2";
     }
 
-    @Transactional
     @GetMapping("/XSignUp/{id}")
-    public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id){
+    public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id) {
         String uniqueId = generateUniqueRandomNumericId(5);
         newplayer.setId(Long.valueOf(uniqueId));
-        idrepo.save(newplayer);
+        // idrepo.save(newplayer);
         return "homepageO";
     }
-    
 
     @GetMapping("/OSignUp")
     public String signUp1(Model model) {
@@ -106,47 +122,71 @@ public class TictactoeController {
     }
 
     @PostMapping("/OSignUp")
-    public String UserName1(Model model,@RequestParam String ingamename) {
+    public String UserName1(Model model, @RequestParam String ingamename) {
         model.addAttribute("name", new game());
-        Long id= Long.parseLong(generateUniqueRandomNumericId(5));
-        p2= new player( id,ingamename);
+        Long id = Long.parseLong(generateUniqueRandomNumericId(5));
+        p2 = new player(id, ingamename);
         playerrepo.save(p2);
-        model.addAttribute("id",p2.getId() );
+        model.addAttribute("id", p2.getId());
         return "Osignup2";
     }
 
     @Transactional
     @GetMapping("/OSignUp/{id}")
-    public String Osignup(@ModelAttribute player newplayer, @PathVariable long id){
+    public String Osignup(@ModelAttribute player newplayer, @PathVariable long id) {
         String Id = generateRandomNumericId(5);
         id = Long.valueOf(Id);
         newplayer.setId(id);
-        idrepo.save(newplayer);
-        return"final";
+        // idrepo.save(newplayer);
+        return "final";
     }
 
     @GetMapping("/restartgame")
-    public String restart(Model model){
+    public String restart(Model model) {
         return "final";
     }
 
     @GetMapping("/replay")
-    public String replay(Model model){
+    public String replay(Model model) {
         return "final";
     }
 
     @GetMapping("/tie")
-    public String Tie(Model model){
+    public String Tie(Model model) {
         return "XOtie";
     }
 
     @GetMapping("/Xwin")
-    public String Xwinner(Model model){
+    public String Xwinner(@ModelAttribute winner winner, @ModelAttribute loser loser) {
+
+        winner.setPlayer(p1);
+        winner.setId(p1.getId());
+        winner.setName(p1.getName());
+        winnerrepo.save(winner);
+        logger.info("Inside Xwinner method");
+        loser.setPlayer(p2);
+        loser.setId(p2.getId());
+        loser.setName(p2.getName());
+        loserrepo.save(loser);
+        logger.info("Inside Oloser method");
+
         return "Xwinner";
     }
 
     @GetMapping("/Owin")
-    public String Owinner(Model model){
+    public String Owinner(@ModelAttribute winner winner, @ModelAttribute loser loser) {
+        winner.setPlayer(p2);
+        winner.setId(p2.getId());
+        winner.setName(p2.getName());
+        winnerrepo.save(winner);
+        logger.info("Inside Owinner method");
+
+        loser.setPlayer(p1);
+        loser.setId(p1.getId());
+        loser.setName(p1.getName());
+        loserrepo.save(loser);
+        logger.info("Inside Xloser method");
+
         return "Owinner";
     }
 
@@ -157,32 +197,45 @@ public class TictactoeController {
 
     @PostMapping("/Xlogin")
     public String loginX(@RequestParam Long playerId, Model model) {
-        player player = playerrepo.findById(playerId).get();
+        player player = playerrepo.findById(playerId).orElse(null);
 
         if (player != null) {
             model.addAttribute("player", player);
             return "homepageO";
         } else {
-            return "homepageX";
+            return "homepageX2";
         }
     }
 
-     @GetMapping("/Ologin")
+    @GetMapping("/Ologin")
     public String showOLoginPage() {
         return "Ologin";
     }
 
     @PostMapping("/Ologin")
     public String loginO(@RequestParam Long playerId, Model model) {
-        player player = playerrepo.findById(playerId).get();
+        player player = playerrepo.findById(playerId).orElse(null);
 
         if (player != null) {
             model.addAttribute("player", player);
             return "final";
         } else {
-            return "redirect:/OSignUp";
+            return "homepageO2";
         }
     }
 
-    
+    @GetMapping("/leaderboard")
+    public String finalPage(Model model) {
+        // Retrieve the winners and losers from the repositories
+        ArrayList<winner> winners = (ArrayList<winner>) winnerrepo.findAll();
+        ArrayList<loser> losers = (ArrayList<loser>) loserrepo.findAll();
+
+        // Add the winners and losers to the model
+        model.addAttribute("winners", winners);
+        model.addAttribute("losers", losers);
+
+        // Return the template name
+        return "leaderboard";
+    }
+
 }

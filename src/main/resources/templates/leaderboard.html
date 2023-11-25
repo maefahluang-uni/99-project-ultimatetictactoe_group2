@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/global.css">
+    <link rel="stylesheet" href="/static/homepageXO.css">
+</head>
+
+<body>
+    <style>
+        .table th,
+        .table td {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Set the color for loser names to black */
+        .table tbody tr th,
+        .table tbody tr td {
+            color: #000000;
+        }
+
+        .winner {
+            color: #00ff00;
+        }
+
+        .loser {
+            color: #ff0000;
+        }
+    </style>
+
+    <div class="log-in">
+        <div class="frame-wrapper">
+            <div class="frame">
+                <img class="img" src="https://c.animaapp.com/lOqBbgw9/img/frame-9.svg" />
+                <div class="div">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Winner</th>
+                        </thead>
+                        <tbody>
+                            <tr th:each="winner : ${winners}">
+                                <td class="winner" th:text="${winner.name}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Loser</th>
+                        </thead>
+                        <tbody>
+                            <tr th:each="loser : ${losers}">
+                                <td class="loser" th:text="${loser.getName()}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="frame-2">
+                    <a href="/replay" class="button1">
+                        <div class="text-wrapper-2">Replay</div>
+                    </a>
+                    <!--form th:action=""></form-->
+                    <a href="/tictactoe" class="button2">
+                        <div class="text-wrapper-2">Exit</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
