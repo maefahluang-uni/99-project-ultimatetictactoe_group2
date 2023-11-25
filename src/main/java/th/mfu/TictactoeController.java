@@ -86,7 +86,7 @@ public class TictactoeController {
         this.loserrepo = loserrepo;
     }
 
-    @GetMapping("/tictactoe")
+    @GetMapping("/")
     public String tictactoe(Model model) {
         model.addAttribute("Model", model);
         return "homepageX";
