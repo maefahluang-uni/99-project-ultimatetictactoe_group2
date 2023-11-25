@@ -5,6 +5,7 @@ Please use this template for your project.
 List your group's member's below with ID and name.
 
 | Members' List |
+-----------------
 
 |       Name          |      ID        |   Account  |
 |---------------------|----------------|------------|
@@ -16,6 +17,7 @@ List your group's member's below with ID and name.
 | Min Khant Than Swe  |   6531503154   |            |
 
 | Overview |
+------------
 
 Welcome to our project, Ultimate Tic Tac Toe. In this project, we modified the traditional 9 grids to 9 big grids with 9 small girds in each summing up to overall 81 small grids. 
 
