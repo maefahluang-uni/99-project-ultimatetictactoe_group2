@@ -15,15 +15,18 @@ public class loser
     @OneToOne(cascade =CascadeType.ALL )
     private player player;
     
-    public String getName() {
+    public String getName()
+     {
         return name;
     }
 
-    public player getPlayer() {
+    public player getPlayer() 
+    {
         return player;
     }
 
-    public void setPlayer(player player) {
+    public void setPlayer(player player)
+    {
         this.player = player;
     }
 
