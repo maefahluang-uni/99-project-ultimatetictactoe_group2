@@ -11,9 +11,6 @@ public class loser{
     private long id;  
     private String name;
 
-
-    
-
     @OneToOne(cascade =CascadeType.ALL )
     private player player;
     

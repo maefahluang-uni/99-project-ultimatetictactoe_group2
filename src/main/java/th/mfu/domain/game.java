@@ -11,7 +11,6 @@ public class game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     public long getId() {
         return id;
     }
