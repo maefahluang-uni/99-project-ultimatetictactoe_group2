@@ -109,6 +109,18 @@ public class TictactoeController {
     }
 
 
+   /*  @PostMapping("/OSignUp")
+    public String UserName1(Model model, @RequestParam String ingamename) {
+        model.addAttribute("name", new game());
+        Long id = Long.parseLong(generateUniqueRandomNumericId(5));
+        p2 = new player(id, ingamename);
+        playerrepo.save(p2);
+        model.addAttribute("id", p2.getId());
+        return "Osignup2";
+    }
+
+    */
+    
     @PostMapping("/OSignUp")
     public String UserName1(Model model, @RequestParam String ingamename) {
         model.addAttribute("name", new game());
@@ -118,6 +130,7 @@ public class TictactoeController {
         model.addAttribute("id", p2.getId());
         return "Osignup2";
     }
+    
 
 
     @Transactional
