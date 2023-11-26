@@ -31,7 +31,7 @@ Procedures
 
 There will be two players: player X and player O. Each of them have two choices: either sign-up or log-in. Signing up the name will give the player the ID for later logging in the game again. The log-in option will ask for the ID the system has already generated the first time they have played the game.
 
-After asking for the information, the game will start, and it is ready to be played. 
+After asking for the information, the game will start, and it is ready to be played.
 
 Conditions:
 ------------
