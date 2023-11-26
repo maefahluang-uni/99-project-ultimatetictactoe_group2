@@ -22,7 +22,25 @@
             font-size: 20px;
             text-align: center;
             padding: 10px;
+        } 
+
+        /* .win {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            color: greenyellow;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
         }
+
+        .lose {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            color: red;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        } */
 
         /* Set the color for loser names to black */
         .table tbody tr th,
@@ -49,7 +67,7 @@
 
                     <table class="table table-striped">
                         <thead>
-                            <th>Winner</th>
+                            <th class="win">Winner</th>
                         </thead>
                         <tbody>
                             <tr th:each="winner : ${winners}">
@@ -60,7 +78,7 @@
 
                     <table class="table table-striped">
                         <thead>
-                            <th>Loser</th>
+                            <th class="lose">Loser</th>
                         </thead>
                         <tbody>
                             <tr th:each="loser : ${losers}">
