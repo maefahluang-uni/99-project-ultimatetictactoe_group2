@@ -30,12 +30,6 @@ public class TictactoeController {
     player p1 = null;
     player p2 = null;
 
-    // @Autowired
-    // NameRepository namerepo;
-
-    // @Autowired
-    // IDRepository idrepo;
-
     @Autowired
     Playerrepository playerrepo;
 
@@ -49,8 +43,6 @@ public class TictactoeController {
     public static String generateUniqueRandomNumericId(int length) {
         while (true) {
             double tempId=Math.random()*100000;
-            // String id = generateRandomNumericId(length);
-            
             String id=String.valueOf((int)tempId);
             if (!useIds.contains(id)) {
                 useIds.add(id);
@@ -58,7 +50,6 @@ public class TictactoeController {
             }
         }
     }
-
 
     private static String generateRandomNumericId(int length) {
         StringBuilder id = new StringBuilder(length);
@@ -70,8 +61,6 @@ public class TictactoeController {
 
     public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo, LoserRepository loserrepo) {
 
-        // this.namerepo = namerepo;
-        // this.idrepo = idrepo;
         this.playerrepo = playerrepio;
         this.winnerrepo = winnerrepo;
         this.loserrepo = loserrepo;
