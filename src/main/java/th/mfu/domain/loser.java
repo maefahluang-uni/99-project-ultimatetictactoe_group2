@@ -30,7 +30,8 @@ public class loser
         this.player = player;
     }
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.name = name;
     }
 
