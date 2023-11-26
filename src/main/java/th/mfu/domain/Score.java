@@ -15,3 +15,4 @@ public class Score
     private game  game;
 
 }
+
