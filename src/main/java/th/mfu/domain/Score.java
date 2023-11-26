@@ -10,6 +10,7 @@ public class Score {
     @Id
     private long id;
 
+    
     @ManyToOne(cascade = CascadeType.MERGE)
     private game  game;
 

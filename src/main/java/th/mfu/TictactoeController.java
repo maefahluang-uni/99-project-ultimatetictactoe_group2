@@ -40,7 +40,8 @@ public class TictactoeController {
     LoserRepository loserrepo;
 
 
-    public static String generateUniqueRandomNumericId(int length) {
+    public static String generateUniqueRandomNumericId(int length) 
+    {
         while (true) {
             double tempId=Math.random()*100000;
             String id=String.valueOf((int)tempId);
@@ -51,7 +52,8 @@ public class TictactoeController {
         }
     }
 
-    private static String generateRandomNumericId(int length) {
+    private static String generateRandomNumericId(int length)
+     {
         StringBuilder id = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             id.append(random.nextInt(10));
@@ -66,17 +68,20 @@ public class TictactoeController {
         this.loserrepo = loserrepo;
     }
 
+
     @GetMapping("/")
     public String tictactoe(Model model) {
         model.addAttribute("Model", model);
         return "homepageX";
     }
 
+
     @GetMapping("/XSignUp")
     public String signUp(Model model) {
 
         return "Xsignup1";
     }
+
 
     @PostMapping("/XSignUp")
     public String UserName(Model model, @RequestParam String ingamename) {
@@ -88,6 +93,7 @@ public class TictactoeController {
         return "Xsignup2";
     }
 
+
     @GetMapping("/XSignUp/{id}")
     public String Xsignup(@ModelAttribute player newplayer, @PathVariable long id) {
         String uniqueId = generateUniqueRandomNumericId(5);
@@ -96,10 +102,12 @@ public class TictactoeController {
         return "homepageO";
     }
 
+
     @GetMapping("/OSignUp")
     public String signUp1(Model model) {
         return "Osignup1";
     }
+
 
     @PostMapping("/OSignUp")
     public String UserName1(Model model, @RequestParam String ingamename) {
@@ -111,6 +119,7 @@ public class TictactoeController {
         return "Osignup2";
     }
 
+
     @Transactional
     @GetMapping("/OSignUp/{id}")
     public String Osignup(@ModelAttribute player newplayer, @PathVariable long id) {
@@ -121,20 +130,24 @@ public class TictactoeController {
         return "final";
     }
 
+
     @GetMapping("/restartgame")
     public String restart(Model model) {
         return "final";
     }
+
 
     @GetMapping("/replay")
     public String replay(Model model) {
         return "final";
     }
 
+
     @GetMapping("/tie")
     public String Tie(Model model) {
         return "XOtie";
     }
+
 
     @GetMapping("/Xwin")
     public String Xwinner(@ModelAttribute winner winner, @ModelAttribute loser loser) {
@@ -153,6 +166,7 @@ public class TictactoeController {
         return "Xwinner";
     }
 
+
     @GetMapping("/Owin")
     public String Owinner(@ModelAttribute winner winner, @ModelAttribute loser loser) {
         winner.setPlayer(p2);
@@ -170,10 +184,12 @@ public class TictactoeController {
         return "Owinner";
     }
 
+
     @GetMapping("/Xlogin")
     public String showXLoginPage() {
         return "Xlogin";
     }
+
 
     @PostMapping("/Xlogin")
     public String loginX(@RequestParam Long playerId, Model model) {
@@ -187,10 +203,12 @@ public class TictactoeController {
         }
     }
 
+
     @GetMapping("/Ologin")
     public String showOLoginPage() {
         return "Ologin";
     }
+
 
     @PostMapping("/Ologin")
     public String loginO(@RequestParam Long playerId, Model model) {
@@ -203,6 +221,7 @@ public class TictactoeController {
             return "homepageO2";
         }
     }
+
 
     @GetMapping("/leaderboard")
     public String finalPage(Model model) {

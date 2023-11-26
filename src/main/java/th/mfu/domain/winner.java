@@ -7,7 +7,6 @@ import javax.persistence.OneToOne;
 
 public class winner {
      @Id
-     
     private long id;  
     private String name;
     @OneToOne(cascade =CascadeType.ALL )
