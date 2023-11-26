@@ -45,7 +45,6 @@
                         </div>
                         <img class="img1" src="https://c.animaapp.com/of3aTZ9T/img/frame-19.svg" />
                     </div>
-                    <!-- <input class="name" placeholder="Enter your in-game name" type="text" /> -->
                     <form th:action="@{/XSignUp/}" th:object="${newPlayer}" method="post">
                         <input type="text" pattern="^[a-z0-9]+$" required oninput="checkInput()" id="in-game-name"
                             name="ingamename" class="textfield" placeholder="Enter Your In Game Name" style="font-family: 'Orbitron', 

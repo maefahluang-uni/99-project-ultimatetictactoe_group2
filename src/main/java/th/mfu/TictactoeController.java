@@ -39,7 +39,14 @@ public class TictactoeController {
     @Autowired
     LoserRepository loserrepo;
 
-
+    private static String generateRandomNumericId(int length)
+     {
+        StringBuilder id = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            id.append(random.nextInt(10));
+        }
+        return id.toString();
+    }
     public static String generateUniqueRandomNumericId(int length) 
     {
         while (true) {
@@ -52,15 +59,7 @@ public class TictactoeController {
         }
     }
 
-    private static String generateRandomNumericId(int length)
-     {
-        StringBuilder id = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            id.append(random.nextInt(10));
-        }
-        return id.toString();
-    }
-
+    
     public TictactoeController(Playerrepository playerrepio, WinnerRepository winnerrepo, LoserRepository loserrepo) {
 
         this.playerrepo = playerrepio;
