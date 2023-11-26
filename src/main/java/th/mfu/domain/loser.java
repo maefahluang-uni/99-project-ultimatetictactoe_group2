@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class loser{
+public class loser
+{
      @Id
     private long id;  
     private String name;
