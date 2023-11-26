@@ -28,7 +28,8 @@ public class player
         this.name = name;
     }
 
-    public player(){
+    public player()
+    {
 
     }
 
