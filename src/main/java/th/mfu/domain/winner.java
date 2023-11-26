@@ -11,10 +11,12 @@ public class winner {
     private String name;
     @OneToOne(cascade =CascadeType.ALL )
     private player player;
-    public String getName() {
+    public String getName() 
+    {
         return name;
     }
-    public player getPlayer() {
+    public player getPlayer()
+    {
         return player;
     }
     public void setPlayer(player player) {
