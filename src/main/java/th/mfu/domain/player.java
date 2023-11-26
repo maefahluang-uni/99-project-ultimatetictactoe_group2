@@ -19,9 +19,7 @@ public class player
     {
         return name;
     }
-
     
-
     public player(long id, String name) 
     {
         this.id = id;
