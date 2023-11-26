@@ -14,6 +14,11 @@
 
 <body>
     <style>
+        
+        .table {
+            width: 100%;
+        }
+
         .table th,
         .table td {
             font-family: 'Orbitron', sans-serif;
@@ -24,7 +29,6 @@
             padding: 10px;
         }
 
-        /* Set the color for loser names to black */
         .table tbody tr th,
         .table tbody tr td {
             color: #000000;
@@ -32,13 +36,15 @@
 
         .winner {
             color: #00ff00;
-            font-size: 24px; /* Adjust the font size for winner.name */
+            font-size: 24px;
         }
 
         .loser {
             color: #ff0000;
-            font-size: 24px; /* Adjust the font size for loser.getName() */
+            font-size: 24px;
         }
+
+        
     </style>
 
     <div class="log-in">
@@ -46,29 +52,18 @@
             <div class="frame">
                 <img class="img" src="https://c.animaapp.com/lOqBbgw9/img/frame-9.svg" />
                 <div class="div">
-
                     <table class="table table-striped">
                         <thead>
                             <th>Winner</th>
-                        </thead>
-                        <tbody>
-                            <tr th:each="winner : ${winners}">
-                                <td class="winner" th:text="${winner.name}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table class="table table-striped">
-                        <thead>
                             <th>Loser</th>
                         </thead>
                         <tbody>
-                            <tr th:each="loser : ${losers}">
-                                <td class="loser" th:text="${loser.getName()}"></td>
+                            <tr th:each="winner, iterStat : ${winners}">
+                                <td class="winner" th:text="${winner.name}"></td>
+                                <td class="loser" th:text="${losers[iterStat.index].getName()}"></td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
                 <div class="frame-2">
                     <a href="/replay" class="button1">
