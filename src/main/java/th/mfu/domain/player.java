@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class player {
+public class player 
+{
      @Id
     private long id;  
     private String name;
