@@ -32,5 +32,4 @@ public class winner {
         this.id = id;
     }
 
-
 }
