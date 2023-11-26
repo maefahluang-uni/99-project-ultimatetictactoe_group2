@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center; /* Add this line to center the content horizontally */
   width: 700px;
+  height: 100%;
 }
 
 .frame {
@@ -22,6 +23,8 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
+  height: 100%;
+  width: 100%;
 }
 
 /*.img {
@@ -70,11 +73,13 @@
 
 .frame-2 {
 display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 16px;
   position: relative;
   flex: 0 0 auto;
+  width: 50%;
+  margin: 35px;
 }
 
 .button1 {
@@ -140,6 +145,57 @@ display: flex;
     background-color: #9a6c17; /* Change background color when pressed */
 }
 
+.table {
+  width: 100%;
+}
+
+.table th, 
+.table td {
+  border: 5px solid;
+  border-radius: 50px;
+  border-color: #192a32;
+}
+
+
+
+.win {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 300;
+  color: rgb(109, 157, 36);
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+.lose {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 300;
+  color: rgb(149, 13, 13);
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+.table tbody tr th,
+.table tbody tr td {
+  color: whitesmoke;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.heading {
+  font-family: 'Orbitron', sans-serif;
+  color: #6e8a97;
+  font-weight: 500;
+  font-size: 45px;
+  position: relative;
+  padding: 15px;
+  margin-top: 5px;
+  text-align: center;
+}
+
 
 @media (max-width: 768px){
     .log-in {
@@ -165,6 +221,8 @@ display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        height: 100%;
+        width: 100%;
       }
 
       .img {
@@ -282,4 +340,53 @@ display: flex;
 .button2.active {
     background-color: #9a6c17; /* Change background color when pressed */
 }
+
+
+.heading {
+  font-family: 'Orbitron', sans-serif;
+  color: #6e8a97;
+  font-weight: 400;
+  font-size: 35px;
+  position: relative;
+  padding: 15px;
+  margin-top: 5px;
+  text-align: center;
+}
+.table {
+  width: 75%;
+}
+
+.table th, 
+        .table td {
+            border: 3px solid;
+            border-radius: 30px;
+            border-color: #192a32;
+        }
+.win {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 200;
+  color: rgb(109, 157, 36);
+  font-size: 20px;
+  text-align: center;
+  padding: 7px;
+}
+
+.lose {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 200;
+  color: rgb(149, 13, 13);
+  font-size: 20px;
+  text-align: center;
+  padding: 7px;
+}
+
+.table tbody tr th,
+        .table tbody tr td {
+            color: whitesmoke;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            text-align: center;
+            padding: 7px;
+        }
+
 }
