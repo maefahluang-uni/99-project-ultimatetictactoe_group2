@@ -46,7 +46,8 @@ public class TictactoeController {
     LoserRepository loserrepo;
 
 
-    public static String generateUniqueRandomNumericId(int length) {
+    public static String generateUniqueRandomNumericId(int length) 
+    {
         while (true) {
             double tempId=Math.random()*100000;
             // String id = generateRandomNumericId(length);
@@ -60,7 +61,8 @@ public class TictactoeController {
     }
 
 
-    private static String generateRandomNumericId(int length) {
+    private static String generateRandomNumericId(int length)
+     {
         StringBuilder id = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             id.append(random.nextInt(10));
@@ -77,7 +79,7 @@ public class TictactoeController {
         this.loserrepo = loserrepo;
     }
 
-    
+
     @GetMapping("/")
     public String tictactoe(Model model) {
         model.addAttribute("Model", model);
