@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 @Entity
+
 public class winner {
      @Id
+     
     private long id;  
     private String name;
     @OneToOne(cascade =CascadeType.ALL )
