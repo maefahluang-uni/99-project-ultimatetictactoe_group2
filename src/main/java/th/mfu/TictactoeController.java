@@ -237,3 +237,59 @@ public class TictactoeController {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* //TODO: add initbinder to convert date
+    @InitBinder
+    public final void initBinderUsuariosFormValidator(final WebDataBinder binder, final Locale locale) {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", locale);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    } */
