@@ -35,3 +35,8 @@ Conditions:
 The determination of victory involves a meticulous count of symbols within the expansive large grids, considering diagonal, vertical, and horizontal alignments. In cases where a decisive winner remains elusive at the level of individual large grids, the game pivots to comparing the total count of large grids conquered by each player. The one with the greater count emerges victorious. In the rare circumstance of an equal count, the game gracefully concludes in a tie.
 
 Prepare for an immersive journey where strategic prowess and skillful play define the path to crowning the ultimate champion in Ultimate Tic Tac Toe.
+
+
+Deployed on Google Cloud
+------------------------
+https://lab-cd-mcukjy5pla-uc.a.run.app
